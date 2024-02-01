@@ -214,9 +214,9 @@ bindsym Ctrl+$mod+Print exec --no-startup-id maim --window $(xdotool getactivewi
 bindsym Ctrl+Shift+Print exec --no-startup-id maim --select | xclip -selection clipboard -t image/png
 
 # Setup Media Keys
-bindsym XF86AudioPlay exec ~/.config/i3Scripts/i3_mediakeys.sh 1
-bindsym XF86AudioPause exec ~/.config/i3Scripts/i3_mediakeys.sh 1
-bindsym XF86AudioNext exec ~/.config/i3Scripts/i3_mediakeys.sh 2
-bindsym XF86AudioPrev exec ~/.config/i3Scripts/i3_mediakeys.sh 3
+bindsym XF86AudioPlay exec ~/.config/Scripts/i3_mediakeys.sh 1
+bindsym XF86AudioPause exec ~/.config/Scripts/i3_mediakeys.sh 1
+bindsym XF86AudioNext exec ~/.config/Scripts/i3_mediakeys.sh 2
+bindsym XF86AudioPrev exec ~/.config/Scripts/i3_mediakeys.sh 3
 
 gaps inner 10

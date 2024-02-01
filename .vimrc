@@ -61,6 +61,8 @@ hi MatchParen cterm=bold ctermbg=none ctermfg=yellow
 
 " Enable plugin installation using vim-plug
 call plug#begin('~/.vim/plugged')
-" Install WakaTime plugin
-Plug 'wakatime/vim-wakatime'
+	Plug 'wakatime/vim-wakatime'
+	Plug 'rust-lang/rust.vim'
 call plug#end()
+
+let g:rustfmt_autosave = 1
