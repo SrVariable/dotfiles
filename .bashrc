@@ -146,7 +146,7 @@ fi
 #LS_COLORS=$LS_COLORS:'di=01;35:fi=00;33:ex=01;32:*.env=0;90:*.dockerfile=0;90:*.gitignore=0;90:*.deb=0;31' ; export LS_COLORS
 
 # Aliases
-alias obsync='cd ~/ObsidianVault && git pull github master && git add . && git commit -m "PC Daily Sync $(date)" && git push github && cd -'
+alias obsync='cd ~/ObsidianVault && git pull github master && git add . && git commit -m "PC Manual Sync $(date)" && git push github && cd -'
 alias cvim='vim ~/.vimrc'
 alias cbash='vim ~/.bashrc && source ~/.bashrc'
 alias build='python3 ~/GitRepos/42ProjectTemplateBuilder/main.py'
@@ -177,3 +177,10 @@ esac
 
 export LC_TIME="en_GB.UTF-8"
 . "$HOME/.cargo/env"
+
+# If ~/.inputrc doesn't exist yet: First include the original /etc/inputrc
+# so it won't get overriden
+if [ ! -a ~/.inputrc ]; then echo '$include /etc/inputrc' > ~/.inputrc; fi
+
+# Add shell-option to ~/.inputrc to enable case-insensitive tab completion
+echo 'set completion-ignore-case On' >> ~/.inputrc

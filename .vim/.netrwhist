@@ -1,5 +1,6 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =9
+let g:netrw_dirhistcnt =0
+let g:netrw_dirhist_0='/home/ribana-b/GitRepos/dotfiles/i3blocks'
 let g:netrw_dirhist_9='/home/ribana-b/.vim/plugged'
 let g:netrw_dirhist_8='/home/ribana-b/.vim/plugged/vim-wakatime/plugin'
 let g:netrw_dirhist_7='/home/ribana-b/.vim/plugged/vim-wakatime'
@@ -9,4 +10,3 @@ let g:netrw_dirhist_4='/home/ribana-b/.vim/plugged'
 let g:netrw_dirhist_3='/home/ribana-b/.vim'
 let g:netrw_dirhist_2='/home/ribana-b/.vim/plugin'
 let g:netrw_dirhist_1='/home/ribana-b/.vim'
-let g:netrw_dirhist_0='/home/ribana-b/.vim/plugged'

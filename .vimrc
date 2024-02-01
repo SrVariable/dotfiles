@@ -66,3 +66,13 @@ call plug#begin('~/.vim/plugged')
 call plug#end()
 
 let g:rustfmt_autosave = 1
+
+
+
+if has('autocmd')
+	autocmd BufReadPost * 
+	\if line("'\"") > 1 && line("'\"") <= line("$") | 
+	\	execute "normal! g`\"" | 
+	\endif
+endif
+
