@@ -24,7 +24,7 @@ set visualbell
 set t_vb=
 
 " Disable wrapping
-"set nowrap
+set nowrap
 
 " Set the tab to 4 spaces
 set tabstop=4 
@@ -67,12 +67,9 @@ call plug#end()
 
 let g:rustfmt_autosave = 1
 
-
-
 if has('autocmd')
 	autocmd BufReadPost * 
 	\if line("'\"") > 1 && line("'\"") <= line("$") | 
 	\	execute "normal! g`\"" | 
 	\endif
 endif
-
