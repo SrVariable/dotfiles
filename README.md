@@ -49,14 +49,17 @@ git clone https://github.com/SrVariable/dotfiles.git && cd dotfiles
 Install the dotfiles
 
 ```Shell
-sh install.sh
+./install.sh
 ```
 
-> [!NOTE]
->
+> [!NOTE] 
 > 
+> The script has flags, you can check them out with
+> ```Shell
+> ./install.sh -h
+> ```
 
 ## Atribution
 
-[Wallpaper by murphy3](https://wallpapers.com/wallpapers/one-piece-chopper-3xx2k24wnica4r6a.html)
 ![One Piece Wallpaper](./nitrogen/Wallpaper.jpg)
+[Wallpaper by murphy3](https://wallpapers.com/wallpapers/one-piece-chopper-3xx2k24wnica4r6a.html)
