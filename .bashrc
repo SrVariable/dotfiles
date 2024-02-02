@@ -66,25 +66,27 @@ set_prompt() {
     exit_status=$?
     if [ "$PWD" = "$HOME" ]; then
         if [ "$exit_status" -ne 0 ]; then
-            PS1="\[\033[1;31m\]→  \[\033[1;34m\]$VIRTUAL_ENV_PROMPT~\[\033[1;32m\]$(parse_git_branch)\[\033[0m\] "
+            PS1="\[\033[1;31m\]➜ \[\033[1;34m\]$VIRTUAL_ENV_PROMPT~\[\033[1;32m\]$(parse_git_branch)\[\033[0m\] "
         else
-            PS1="\[\033[1;32m\]→  \[\033[1;34m\]$VIRTUAL_ENV_PROMPT~\[\033[1;32m\]$(parse_git_branch)\[\033[0m\] "
+            PS1="\[\033[1;32m\]➜ \[\033[1;34m\]$VIRTUAL_ENV_PROMPT~\[\033[1;32m\]$(parse_git_branch)\[\033[0m\] "
         fi
     else
         if [ "$exit_status" -ne 0 ]; then
-            PS1="\[\033[1;31m\]→  \[\033[1;34m\]$VIRTUAL_ENV_PROMPT$(basename "$PWD")\[\033[1;32m\]$(parse_git_branch)\[\033[0;0m\] "
+            PS1="\[\033[1;31m\]➜ \[\033[1;34m\]$VIRTUAL_ENV_PROMPT$(basename "$PWD")\[\033[1;32m\]$(parse_git_branch)\[\033[0;0m\] "
         else
-            PS1="\[\033[1;32m\]→  \[\033[1;34m\]$VIRTUAL_ENV_PROMPT$(basename "$PWD")\[\033[1;32m\]$(parse_git_branch)\[\033[0;0m\] "
+            PS1="\[\033[1;32m\]➜ \[\033[1;34m\]$VIRTUAL_ENV_PROMPT$(basename "$PWD")\[\033[1;32m\]$(parse_git_branch)\[\033[0;0m\] "
         fi
     fi
 }
 
 # Terminal display
-if [ "$color_prompt" = yes ]; then
-	PROMPT_COMMAND='set_prompt'; export PROMPT_COMMAND
-else
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
-fi
+PROMPT_COMMAND='set_prompt'; export PROMPT_COMMAND
+#if [ "$color_prompt" = yes ]; then
+#	PROMPT_COMMAND='set_prompt'; export PROMPT_COMMAND
+#else
+#	PROMPT_COMMAND='set_prompt'; export PROMPT_COMMAND
+#    PS1='lololol${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+#fi
 
 unset color_prompt force_color_prompt
 
@@ -155,6 +157,7 @@ alias ga='git add'
 alias gc='git commit'
 alias gcl='git clone --depth=1'
 alias gl='git log --decorate --graph --all --oneline'
+alias gls='git ls-files'
 alias gp='git push'
 alias gs='git status'
 alias gb='git branch'
@@ -164,8 +167,9 @@ alias py='python3'
 alias flyctl='/home/ribana-b/.fly/bin/flyctl'
 alias ci3='vim ~/.config/i3/config'
 alias cpolybar='vim ~/.config/polybar/config'
-alias install='sudo apt install'
-alias remove='sudo apt remove --purge'
+alias install='sudo apt install -y'
+alias remove='sudo apt remove --purge -y'
+alias update='sudo apt upgrate && sudo apt upgrade'
 
 # pnpm
 export PNPM_HOME="/home/ribana-b/.local/share/pnpm"
@@ -175,7 +179,6 @@ case ":$PATH:" in
 esac
 # pnpm end
 
-export LC_TIME="en_GB.UTF-8"
 . "$HOME/.cargo/env"
 
 # If ~/.inputrc doesn't exist yet: First include the original /etc/inputrc

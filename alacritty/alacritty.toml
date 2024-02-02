@@ -1,0 +1,12 @@
+[window]
+opacity = 0.9
+
+[font]
+normal = { family = "FiraCode", style = "Retina"}
+bold = { family = "FiraCode", style = "Retina"}
+italic = { family = "FiraCode", style = "Retina"}
+bold_italic = { family = "FiraCode", style = "Retina"}
+size = 12.0
+
+[cursor]
+style = {shape = "Block", blinking = "On"}
