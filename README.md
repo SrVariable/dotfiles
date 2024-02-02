@@ -59,7 +59,7 @@ Install the dotfiles
 > ./install.sh -h
 > ```
 
-## Atribution
+## Attribution
 
 ![One Piece Wallpaper](./nitrogen/Wallpaper.jpg)
 [Wallpaper by murphy3](https://wallpapers.com/wallpapers/one-piece-chopper-3xx2k24wnica4r6a.html)
