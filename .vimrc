@@ -56,7 +56,7 @@ inoremap ( ()<Left>
 inoremap [ []<Left>
 " Autocomplete curly bracket
 inoremap { {}<Left>
-" Highlight pairs with color red
+" Highlight pairs with color yellow 
 hi MatchParen cterm=bold ctermbg=none ctermfg=yellow
 
 " Enable plugin installation using vim-plug
@@ -65,11 +65,15 @@ call plug#begin('~/.vim/plugged')
 	Plug 'rust-lang/rust.vim'
 call plug#end()
 
+" Run :RustFmt on save
 let g:rustfmt_autosave = 1
 
+" Jump to the last position of the file
 if has('autocmd')
 	autocmd BufReadPost * 
 	\if line("'\"") > 1 && line("'\"") <= line("$") | 
 	\	execute "normal! g`\"" | 
 	\endif
 endif
+
+hi StatusLine ctermfg=1 ctermbg=none
