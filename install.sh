@@ -80,8 +80,12 @@ create_nitrogen_config() {
 }
 
 case $1 in
-	"" | "-i" | "--install")
+	"" | "-b" | "--backup")
 		create_backup
+		create_nitrogen_config
+		install_dotfiles
+		;;
+	"-i" | "--install")
 		create_nitrogen_config
 		install_dotfiles
 		;;
@@ -91,7 +95,8 @@ case $1 in
 	"--help" | "-h")
 		printf "Usage: $0 [flag]\n"
 		formatted_message "Flag" "Description"
-		formatted_message "-i, --install" "Install dotfiles"
+		formatted_message "-b, --backup" "Install dotfiles with backup"
+		formatted_message "-i, --install" "Install dotfiles without backup"
 		formatted_message "-h, --help" "Show commands"
 		formatted_message "-r, --restore" "Restore dotfiles from backup"
 		;;
