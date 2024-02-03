@@ -55,8 +55,6 @@ restore_from_backup() {
 		exit 1
 	fi
 	printf "Restoring from ${available_backups[$option]}...\n"
-	echo "cp -r ${available_backups[$option]}/. $HOME "
-	exit 0
 	cp -r ${available_backups[$option]}/. $HOME 
 	printf "Restored sucessfully!\n"
 }
@@ -67,7 +65,7 @@ formatted_message() {
 	option_length=${#option}
 	spaces_to_fill_option=$((max_length_option - option_length))
 	formatted_option=$(printf "%s%*s" "$option" "$spaces_to_fill_option")
-	echo "$formatted_option $2"
+	printf -- "%s\n" "$formatted_option$2"
 }
 
 create_nitrogen_config() {
