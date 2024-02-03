@@ -2,18 +2,29 @@
 
 backup_dir="$HOME/Desktop/backup"
 config_files=$(find . -maxdepth 1 -type d ! \( -name ".git" -o -name "." -o -name ".vim" \) -printf "%P ")
-root_files=$(find . -maxdepth 1 \( -type f -o -type d \) \( -name ".vim*" -o -name ".bashrc" \) -printf "%P ")
+home_files=$(find . -maxdepth 1 \( -type f -o -type d \) \( -name ".vim*" -o -name ".bashrc" \) -printf "%P ")
 
 create_backup() {
 	i=0
+	read -ra temp_config <<< "$config_files"
+	read -ra temp_home <<< "$home_files"
+	backup_config_files=()
+	backup_home_files=()
 
+	for word in "${temp_config[@]}"; do
+		backup_config_files+=("$HOME/.config/$word")
+	done
+	for word in "${temp_home[@]}"; do
+		backup_home_files+=("$HOME/$word")
+	done
 	while [[ -d $backup_dir/$i ]]; do
 		((++i))
 	done
 	mkdir -p $backup_dir/$i/.config
 	printf -- "Creating backup in $backup_dir/$i...\n"
-	cp -r $config_files $backup_dir/$i/.config > /dev/null 2>&1
-	cp -r $root_files $backup_dir/$i > /dev/null 2>&1
+
+	cp -r ${backup_config_files[@]} $backup_dir/$i/.config > /dev/null 2>&1
+	cp -r ${backup_home_files[@]} $backup_dir/$i > /dev/null 2>&1
 	printf -- "Created succesfully!\n"
 }
 
@@ -21,7 +32,7 @@ install_dotfiles() {
 	printf -- "Installing dotfiles...\n"
 	mkdir -p $HOME/.config
 	cp -r $config_files $HOME/.config
-	cp -r $root_files $HOME
+	cp -r $home_files $HOME
 	printf -- "Installed sucessfully!\n"
 }
 
