@@ -20,8 +20,8 @@ create_backup() {
 install_dotfiles() {
 	printf -- "Installing dotfiles...\n"
 	mkdir -p $HOME/.config
-	cp -r $config_dir $HOME/.config
-	cp -r $root_dir $HOME
+	cp -r $config_files $HOME/.config
+	cp -r $root_files $HOME
 	printf -- "Installed sucessfully!\n"
 }
 

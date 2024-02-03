@@ -161,7 +161,7 @@ bindsym $mod+Shift+o exec obsidian
 assign [class="Gimp-2.10"] → 3
 assign [class="obsidian"] → 4
 assign [class="Code"] → 5
-assign [class="vmware"] → 6
+assign [class="Vmplayer"] → 6
 assign [class="discord"] → 9
 assign [class="Spotify"] → 10
 
