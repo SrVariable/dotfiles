@@ -37,7 +37,7 @@ tray-background = ${colors.background}
 
 modules-left = i3
 modules-center =
-modules-right = spotify ip date time battery
+modules-right = spotify ip xkeyboard date time battery
 
 [module/i3]
 type = internal/i3
@@ -118,6 +118,11 @@ exec = ~/.config/Scripts/polybar_ip.sh
 format-background = ${colors.background}
 format-foreground = ${colors.foreground}
 format-padding = 1
+
+[module/xkeyboard]
+type = internal/xkeyboard
+format = <label-layout> 
+label-layout-padding = 1
 
 [settings]
 screenchange-reload = true

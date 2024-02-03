@@ -4,8 +4,8 @@
 
 # If not running interactively, don't do anything
 case $- in
-    *i*) ;;
-      *) return;;
+	*i*) ;;
+		*) return;;
 esac
 
 # don't put duplicate lines or lines starting with space in the history.
@@ -37,7 +37,7 @@ fi
 
 # set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in
-    xterm-color|*-256color) color_prompt=yes;;
+	xterm-color|*-256color) color_prompt=yes;;
 esac
 
 # uncomment for a colored prompt, if the terminal has the capability; turned
@@ -46,90 +46,76 @@ esac
 #force_color_prompt=yes
 
 if [ -n "$force_color_prompt" ]; then
-    if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
+	if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
 		# We have color support; assume it's compliant with Ecma-48
 		# (ISO/IEC-6429). (Lack of such support is extremely rare, and such
 		# a case would tend to support setf rather than setaf.)
 		color_prompt=yes
-    else
+	else
 		color_prompt=
-    fi
+	fi
 fi
-
 
 # Display the name of the branch
 parse_git_branch() {
 	git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 }
 
+# Format the prompt
 set_prompt() {
-    exit_status=$?
-    if [ "$PWD" = "$HOME" ]; then
-        if [ "$exit_status" -ne 0 ]; then
-            PS1="\[\033[1;31m\]➜ \[\033[1;34m\]$VIRTUAL_ENV_PROMPT~\[\033[1;32m\]$(parse_git_branch)\[\033[0m\] "
-        else
-            PS1="\[\033[1;32m\]➜ \[\033[1;34m\]$VIRTUAL_ENV_PROMPT~\[\033[1;32m\]$(parse_git_branch)\[\033[0m\] "
-        fi
-    else
-        if [ "$exit_status" -ne 0 ]; then
-            PS1="\[\033[1;31m\]➜ \[\033[1;34m\]$VIRTUAL_ENV_PROMPT$(basename "$PWD")\[\033[1;32m\]$(parse_git_branch)\[\033[0;0m\] "
-        else
-            PS1="\[\033[1;32m\]➜ \[\033[1;34m\]$VIRTUAL_ENV_PROMPT$(basename "$PWD")\[\033[1;32m\]$(parse_git_branch)\[\033[0;0m\] "
-        fi
-    fi
+	exit_status=$?
+	if [ "$PWD" = "$HOME" ]; then
+		if [ "$exit_status" -ne 0 ]; then
+			PS1="\[\033[1;31m\]➜ \[\033[1;34m\]$VIRTUAL_ENV_PROMPT~\[\033[1;32m\]$(parse_git_branch)\[\033[0m\] "
+		else
+			PS1="\[\033[1;32m\]➜ \[\033[1;34m\]$VIRTUAL_ENV_PROMPT~\[\033[1;32m\]$(parse_git_branch)\[\033[0m\] "
+		fi
+	else
+		if [ "$exit_status" -ne 0 ]; then
+			PS1="\[\033[1;31m\]➜ \[\033[1;34m\]$VIRTUAL_ENV_PROMPT$(basename "$PWD")\[\033[1;32m\]$(parse_git_branch)\[\033[0;0m\] "
+		else
+			PS1="\[\033[1;32m\]➜ \[\033[1;34m\]$VIRTUAL_ENV_PROMPT$(basename "$PWD")\[\033[1;32m\]$(parse_git_branch)\[\033[0;0m\] "
+		fi
+	fi
 }
 
-# Terminal display
+# Terminal prompt display
 PROMPT_COMMAND='set_prompt'; export PROMPT_COMMAND
-#if [ "$color_prompt" = yes ]; then
-#	PROMPT_COMMAND='set_prompt'; export PROMPT_COMMAND
-#else
-#	PROMPT_COMMAND='set_prompt'; export PROMPT_COMMAND
-#    PS1='lololol${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
-#fi
 
 unset color_prompt force_color_prompt
 
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
-xterm*|rxvt*)
-    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
-    ;;
+	xterm*|rxvt*)
+		PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
+		;;
 *)
     ;;
 esac
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
-    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    alias ls='ls --color=auto'
-    #alias dir='dir --color=auto'
-    #alias vdir='vdir --color=auto'
+	test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+	alias ls='ls --color=auto'
+	#alias dir='dir --color=auto'
+	#alias vdir='vdir --color=auto'
 
-    alias grep='grep --color=auto'
-    alias fgrep='fgrep --color=auto'
-    alias egrep='egrep --color=auto'
+	alias grep='grep --color=auto'
+	alias fgrep='fgrep --color=auto'
+	alias egrep='egrep --color=auto'
 fi
-
-# colored GCC warnings and errors
-#export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
 # some more ls aliases
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 
-# Add an "alert" alias for long running commands.  Use like so:
-#   sleep 10; alert
-alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
-
 # Alias definitions.
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
-
 if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
+	source ~/.bash_aliases
 fi
 
 # enable programmable completion features (you don't need to enable
@@ -143,50 +129,28 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# Change ls colors
-#export LS_COLORS='*=00;33:di=01;35:fi=01;32'
-#LS_COLORS=$LS_COLORS:'di=01;35:fi=00;33:ex=01;32:*.env=0;90:*.dockerfile=0;90:*.gitignore=0;90:*.deb=0;31' ; export LS_COLORS
-
-# Aliases
-alias obsync='cd ~/ObsidianVault && git pull github master && git add . && git commit -m "PC Manual Sync $(date)" && git push github && cd -'
-alias cvim='vim ~/.vimrc'
-alias cbash='vim ~/.bashrc && source ~/.bashrc'
-alias build='python3 ~/GitRepos/42ProjectTemplateBuilder/main.py'
-alias gd='git diff'
-alias ga='git add'
-alias gc='git commit'
-alias gcl='git clone --depth=1'
-alias gl='git log --decorate --graph --all --oneline'
-alias gls='git ls-files'
-alias gp='git push'
-alias gs='git status'
-alias gb='git branch'
-alias gco='git checkout'
-alias gsw='git switch'
-alias py='python3'
-alias flyctl='/home/ribana-b/.fly/bin/flyctl'
-alias ci3='vim ~/.config/i3/config'
-alias cpolybar='vim ~/.config/polybar/config'
-alias install='sudo apt install -y'
-alias remove='sudo apt remove --purge -y'
-alias update='sudo apt upgrate && sudo apt upgrade'
-
-# pnpm
-export PNPM_HOME="/home/ribana-b/.local/share/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
-# pnpm end
-
-. "$HOME/.cargo/env"
-
 # If ~/.inputrc doesn't exist yet: First include the original /etc/inputrc
 # so it won't get overriden
 if [ ! -a ~/.inputrc ]; then echo '$include /etc/inputrc' > ~/.inputrc; fi
 
 # Add shell-option to ~/.inputrc to enable case-insensitive tab completion
 echo 'set completion-ignore-case On' >> ~/.inputrc
+
+# pnpm
+export PNPM_HOME="/home/ribana-b/.local/share/pnpm"
+case ":$PATH:" in
+	*":$PNPM_HOME:"*) ;;
+	*) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+
+wrs() {
+	source $HOME/Magia/Python/WRScrapper/.venv/bin/activate
+	python3 $HOME/Magia/Python/WRScrapper/main.py $1
+	deactivate
+}
+
+# cargo
+. "$HOME/.cargo/env"
 
 # fnm
 export PATH="/home/ribana-b/.local/share/fnm:$PATH"
