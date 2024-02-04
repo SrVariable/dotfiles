@@ -155,3 +155,6 @@ wrs() {
 # fnm
 export PATH="/home/ribana-b/.local/share/fnm:$PATH"
 eval "`fnm env`"
+
+# Created by `pipx` on 2024-02-04 16:32:52
+export PATH="$PATH:/home/ribana-b/.local/bin"

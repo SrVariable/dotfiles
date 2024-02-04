@@ -170,3 +170,6 @@ exec --no-startup-id ~/.config/Scripts/i3_startup.sh
 
 # Start / Restart Polybar
 exec_always ~/.config/Scripts/i3_start_polybar.sh
+
+# Keyboard layout
+exec_always --no-startup-id setxkbmap -layout es,us -option grp:win_space_toggle

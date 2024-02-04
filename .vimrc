@@ -12,7 +12,7 @@ set incsearch							" Incremental search
 set ignorecase							" Case insensitive when searching lowercase
 set smartcase							" Case sensitive when searching uppercase
 let g:rustfmt_autosave = 1				" Automatically format the rust code when saving
-let g:copilot#enabled = 1				" Enable copilot
+let g:copilot#enabled = 0				" Disable copilot
 set termguicolors						" Enable 24-bit color
 colorscheme monokai						" Set the color scheme
 
