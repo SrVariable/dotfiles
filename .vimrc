@@ -28,7 +28,7 @@ set backspace=indent,eol,start
 " Show invisible characters
 set list
 set listchars=tab:-->
-hi SpecialKey ctermfg=DarkGray
+hi SpecialKey guifg = #555555
 
 " Autocomplete
 inoremap ( ()<Left>
