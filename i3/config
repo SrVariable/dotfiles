@@ -147,7 +147,7 @@ bindsym XF86AudioNext exec ~/.config/Scripts/i3_mediakeys.sh 2
 bindsym XF86AudioPrev exec ~/.config/Scripts/i3_mediakeys.sh 3
 
 # Gaps
-gaps inner 10
+# gaps inner 10
 
 # Move to the urgent workspace
 bindsym $mod+u [urgent=latest] focus

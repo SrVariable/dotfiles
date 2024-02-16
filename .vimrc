@@ -14,7 +14,10 @@ set smartcase							" Case sensitive when searching uppercase
 let g:rustfmt_autosave = 1				" Automatically format the rust code when saving
 let g:copilot_enabled = 0				" Disable copilot
 set termguicolors						" Enable 24-bit color
-colorscheme monokai						" Set the color scheme
+"colorscheme monokai						" Set the color scheme
+colorscheme srvariable					" Set the color scheme
+set cursorline							" Set cursor line
+hi clear CursorLine						" Remove highlight of cursor line
 
 " Remove bell
 set visualbell
@@ -28,7 +31,7 @@ set backspace=indent,eol,start
 " Show invisible characters
 set list
 set listchars=tab:-->
-hi SpecialKey guifg = #555555
+"hi SpecialKey guifg = #555555
 
 " Autocomplete
 inoremap ( ()<Left>
@@ -43,6 +46,7 @@ noremap <c-h> <c-w><
 call plug#begin('~/.vim/plugged')
 	Plug 'wakatime/vim-wakatime'
 	Plug 'rust-lang/rust.vim'
+	Plug 'chrisbra/Colorizer'
 call plug#end()
 
 " Jump to the last position of the file
