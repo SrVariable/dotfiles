@@ -1,7 +1,9 @@
 [colors]
-background = #6e00b7
-background-alt = #00000000
-background-alt2 = #450073
+#background = #6e00b7
+background = #333333
+background-alt = #000000
+#background-alt2 = #450073
+background-alt2 = #666666
 foreground = #ffbbff
 foreground-alt = #000000
 foreground-alt2 = #000000
@@ -31,9 +33,9 @@ separator = |
 separator-background = ${colors.background}
 separator-foreground = ${colors.foreground}
 
-tray-position = right
-tray-padding = 2
-tray-background = ${colors.background}
+#tray-position = right
+#tray-padding = 2
+#tray-background = ${colors.background}
 
 modules-left = i3
 modules-center =
