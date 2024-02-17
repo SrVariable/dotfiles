@@ -1,4 +1,5 @@
 .vim/.netrwhist
 .vim/plugged/*
 .vim/pack/*
+.vim/colors
 .swp$
