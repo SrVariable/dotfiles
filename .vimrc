@@ -1,4 +1,4 @@
-syntax on								" Enables the syntax of the language.
+synta on								" Enables the syntax of the language.
 set number								" Display the number lines
 set relativenumber						" Display the relative number lines
 set encoding=utf-8						" Set the encoding to utf-8
@@ -15,6 +15,8 @@ let g:rustfmt_autosave = 1				" Automatically format the rust code when saving
 let g:copilot_enabled = 0				" Disable copilot
 set termguicolors						" Enable 24-bit color
 colorscheme srvariable					" Set the color scheme
+set autoindent
+set smartindent
 
 " Remove bell
 set visualbell
@@ -28,16 +30,6 @@ set backspace=indent,eol,start
 " Show invisible characters
 set list
 set listchars=tab:-->
-"hi SpecialKey guifg = #555555
-
-" Autocomplete
-inoremap ( ()<Left>
-inoremap [ []<Left>
-inoremap { {}<Left>
-noremap <c-j> <c-w>+
-noremap <c-k> <c-w>-
-noremap <c-l> <c-w>>
-noremap <c-h> <c-w><
 
 " Enable plugin installation using vim-plug
 call plug#begin('~/.vim/plugged')
@@ -53,3 +45,20 @@ if has('autocmd')
 	\	execute "normal! g`\"" | 
 	\endif
 endif
+
+" Custom keybindings
+let mapleader=" "
+noremap <F2> m1gg=G'1
+nnoremap ; :
+noremap <c-d> dd
+nnoremap - u
+nnoremap _ <c-r>
+nnoremap 0 _
+inoremap ( ()<Left>
+inoremap { {}<Left>
+inoremap [ []<Left>
+inoremap jk <esc>l
+noremap J ddp
+noremap K ddkP
+nnoremap <leader>e :vsplit $MYVIMRC<cr>
+nnoremap <leader>s :source $MYVIMRC<cr>
