@@ -47,11 +47,10 @@ endif
 
 " Custom keybindings
 let mapleader=" "
-noremap <F2> m1gg=G'1
+noremap <F2> m1gg=G'1zz
 nnoremap ; :
 noremap <c-d> dd
-nnoremap - u
-nnoremap _ <c-r>
+nnoremap U <c-r>
 nnoremap 0 _
 inoremap ( ()<Left>
 inoremap { {}<Left>

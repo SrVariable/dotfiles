@@ -1,1 +1,1 @@
-autocmd BufRead,BufNewFile *.c set filetype=c_custom
+"autocmd BufRead,BufNewFile *.c set filetype=c_custom
