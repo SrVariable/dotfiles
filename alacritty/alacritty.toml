@@ -3,9 +3,6 @@ opacity = 0.97
 
 [font]
 normal = { family = "terminal-font", style = "Regular"}
-bold = { family = "terminal-font", style = "Regular"}
-italic = { family = "terminal-font", style = "Regular"}
-bold_italic = { family = "terminal-font", style = "Regular"}
 size = 12.0
 builtin_box_drawing = true
 
@@ -37,12 +34,12 @@ white = "#b7c8d9"
 [colors.bright]
 black = "#1f2024"
 red = "#d03636"
-green = "#00ff00"
-yellow = "#ffc033"
+green = "#36b93b"
+yellow = "#eecc44"
 blue = "#0067ff"
-magenta = "#b963dc"
+magenta = "#e22bb7"
 cyan = "#0099cc"
-white = "#ffffff"
+white = "#b7c8d9"
 
 [colors.dim]
 black = "#1f2024"

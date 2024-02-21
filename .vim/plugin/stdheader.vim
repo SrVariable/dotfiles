@@ -4,7 +4,7 @@ let s:asciiart = [
 			\"    +:+ +:+         +:+  ",
 			\"  +#+  +:+       +#+     ",
 			\"+#+#+#+#+#+   +#+        ",
-			\"     #+#    #+# MALAGA   ",
+			\"     #+#    #+# Malaga   ",
 			\"    ###   ########.com   "
 			\]
 
@@ -84,7 +84,7 @@ function! s:user()
 	endif
 	let l:user = $USER
 	if strlen(l:user) == 0
-		let l:user = "marvin"
+		let l:user = "joaquin"
 	endif
 	return l:user
 endfunction
@@ -95,7 +95,7 @@ function! s:mail()
 	endif
 	let l:mail = $MAIL
 	if strlen(l:mail) == 0
-		let l:mail = "marvin@42.fr"
+		let l:mail = "joaquin@42malaga.com"
 	endif
 	return l:mail
 endfunction

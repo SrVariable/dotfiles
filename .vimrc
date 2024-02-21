@@ -15,7 +15,6 @@ let g:rustfmt_autosave = 1				" Automatically format the rust code when saving
 let g:copilot_enabled = 0				" Disable copilot
 set termguicolors						" Enable 24-bit color
 colorscheme srvariable					" Set the color scheme
-autocmd BufWritePre * normal m1gg=G'1zz
 
 " Remove bell
 set visualbell
@@ -32,24 +31,23 @@ set listchars=tab:-->
 
 " Enable plugin installation using vim-plug
 call plug#begin('~/.vim/plugged')
-Plug 'wakatime/vim-wakatime'
-Plug 'rust-lang/rust.vim'
-Plug 'chrisbra/Colorizer'
+	Plug 'wakatime/vim-wakatime'
+	Plug 'rust-lang/rust.vim'
+	Plug 'chrisbra/Colorizer'
 call plug#end()
 
 " Jump to the last position of the file
 if has('autocmd')
 	autocmd BufReadPost * 
-				\if line("'\"") > 1 && line("'\"") <= line("$") | 
-				\	execute "normal! g`\"" | 
-				\endif
+		\if line("'\"") > 1 && line("'\"") <= line("$") | 
+		\	execute "normal! g`\"" | 
+		\endif
 endif
 
 " Custom keybindings
 let mapleader=" "
-noremap <F2> m1gg=G'1zz
-nnoremap ; :
-noremap <c-d> dd
+noremap <F2> m1gg=G'1
+nnoremap , :
 nnoremap U <c-r>
 nnoremap 0 _
 inoremap ( ()<Left>
