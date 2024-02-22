@@ -13,6 +13,7 @@ set ignorecase							" Case insensitive when searching lowercase
 set smartcase							" Case sensitive when searching uppercase
 let g:rustfmt_autosave = 1				" Automatically format the rust code when saving
 let g:copilot_enabled = 0				" Disable copilot
+let mapleader=" "						" Set leader key to Space
 set termguicolors						" Enable 24-bit color
 colorscheme srvariable					" Set the color scheme
 
@@ -44,16 +45,18 @@ if has('autocmd')
 		\endif
 endif
 
+augroup htmlGroup
+	autocmd Filetype html inoremap ht<leader> <html><esc>o</html><esc>O
+augroup END
+
 " Custom keybindings
-let mapleader=" "
 noremap <F2> m1gg=G'1
 nnoremap , :
 nnoremap U <c-r>
-nnoremap 0 _
 inoremap ( ()<Left>
-inoremap { {}<Left>
 inoremap [ []<Left>
-inoremap jk <esc>l
+inoremap { {}<Left>
+inoremap jk <esc><Right>
 noremap J ddp
 noremap K ddkP
 nnoremap <leader>e :vsplit $MYVIMRC<cr>
