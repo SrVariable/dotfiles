@@ -43,8 +43,6 @@
     mouse_right_click = close_all
     close = ctrl+space
     close_all = ctrl+shift+space
-    history = ctrl+period
-    context = ctrl+shift+period
     background = "#313338"
     foreground = "#ffbbff"
 

@@ -1,4 +1,4 @@
-synta on								" Enables the syntax of the language.
+syntax on								" Enables the syntax of the language.
 set number								" Display the number lines
 set relativenumber						" Display the relative number lines
 set encoding=utf-8						" Set the encoding to utf-8
@@ -45,10 +45,6 @@ if has('autocmd')
 		\endif
 endif
 
-augroup htmlGroup
-	autocmd Filetype html inoremap ht<leader> <html><esc>o</html><esc>O
-augroup END
-
 " Custom keybindings
 noremap <F2> m1gg=G'1
 nnoremap , :
@@ -57,7 +53,10 @@ inoremap ( ()<Left>
 inoremap [ []<Left>
 inoremap { {}<Left>
 inoremap jk <esc><Right>
+noremap j gj
+noremap k gk
 noremap J ddp
 noremap K ddkP
 nnoremap <leader>e :vsplit $MYVIMRC<cr>
 nnoremap <leader>s :source $MYVIMRC<cr>
+set tags+=~/tags
