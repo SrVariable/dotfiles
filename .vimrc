@@ -7,7 +7,6 @@ set showcmd								" Enables the command history
 filetype plugin indent on				" Indents the file according to the plugin
 set cc=80								" Set the column to 80 characters
 set nowrap								" Disable line wrap
-set hlsearch							" Highlight the search
 set incsearch							" Incremental search
 set ignorecase							" Case insensitive when searching lowercase
 set smartcase							" Case sensitive when searching uppercase
@@ -15,7 +14,7 @@ let g:rustfmt_autosave = 1				" Automatically format the rust code when saving
 let g:copilot_enabled = 0				" Disable copilot
 let mapleader=" "						" Set leader key to Space
 set termguicolors						" Enable 24-bit color
-colorscheme srvariable					" Set the color scheme
+colorscheme themedgehog					" Set the color scheme
 
 " Remove bell
 set visualbell
@@ -26,7 +25,7 @@ set tabstop=4
 set shiftwidth=4 smarttab
 set backspace=indent,eol,start
 
-" Show invisible characters
+" Display tabs as -->
 set list
 set listchars=tab:-->
 
@@ -45,6 +44,14 @@ if has('autocmd')
 		\endif
 endif
 
+function! MoveLineUp()
+    if line('.') == line('$') && line('.') != 1
+        normal! ddP
+    else
+        normal! ddkP
+    endif
+endfunction
+
 " Custom keybindings
 noremap <F2> m1gg=G'1
 nnoremap , :
@@ -56,7 +63,6 @@ inoremap jk <esc><Right>
 noremap j gj
 noremap k gk
 noremap J ddp
-noremap K ddkP
+noremap K :call MoveLineUp()<CR>
 nnoremap <leader>e :vsplit $MYVIMRC<cr>
 nnoremap <leader>s :source $MYVIMRC<cr>
-set tags+=~/tags
