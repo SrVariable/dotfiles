@@ -177,9 +177,13 @@ assign [class="discord"] → 9
 assign [class="Spotify"] → 10
 
 # Startup apps
-exec --no-startup-id ~/.config/Scripts/i3_startup.sh
+exec --no-startup-id i3-msg 'nitrogen --restore'
+exec --no-startup-id i3-msg 'picom'
+
 exec --no-startup-id i3-msg 'workspace 2; exec sleep 1 && i3-sensible-terminal'
-exec --no-startup-id i3-msg 'setxkbmap -layout es,us -option grp:alt_space_togle'
+
+exec --no-startup-id i3-msg 'setxkbmap -layout es,us -option grp:alt_space_toggle'
+exec --no-startup-id i3-msg 'setxkbmap -option ctrl:nocaps'
 
 # Start / Restart Polybar
 exec_always ~/.config/Scripts/i3_start_polybar.sh

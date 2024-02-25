@@ -55,7 +55,8 @@ endfunction
 " Custom keybindings
 noremap <F2> m1gg=G'1
 nnoremap , :
-nnoremap U <c-r>
+nnoremap U <C-r>
+nnoremap - /
 inoremap ( ()<Left>
 inoremap [ []<Left>
 inoremap { {}<Left>
@@ -64,5 +65,6 @@ noremap j gj
 noremap k gk
 noremap J ddp
 noremap K :call MoveLineUp()<CR>
-nnoremap <leader>e :vsplit $MYVIMRC<cr>
-nnoremap <leader>s :source $MYVIMRC<cr>
+nnoremap <leader>j J
+nnoremap <leader>e :vsplit $MYVIMRC<CR>
+nnoremap <leader>s :source $MYVIMRC<CR>
