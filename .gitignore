@@ -1,5 +1,6 @@
 .vim/.netrwhist
 .vim/plugged/*
 .vim/pack/*
-.vim/colors
+.vim/colors/*
 .swp$
+!.vim/colors/themedgehog.vim

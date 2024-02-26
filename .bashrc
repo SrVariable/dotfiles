@@ -159,7 +159,8 @@ eval "`fnm env`"
 # Created by `pipx` on 2024-02-04 16:32:52
 export PATH="$PATH:/home/ribana-b/.local/bin"
 
-# Start with tmux
-if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
-  exec tmux
+# Start using tmux
+if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]]\
+	&& [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
+	$HOME/.config/Scripts/tmux_session.sh
 fi

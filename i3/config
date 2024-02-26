@@ -139,7 +139,7 @@ for_window [class="Gimp-2.10"] border none
 for_window [class="Code"] border none
 
 # Set layout for workspaces
-for_window [workspace=1] layout tabbed
+for_window [workspace=1] layout floating
 for_window [workspace=2] layout tabbed
 
 # Screenshots
@@ -176,14 +176,8 @@ assign [class="Vmplayer"] → 6
 assign [class="discord"] → 9
 assign [class="Spotify"] → 10
 
-# Startup apps
-exec --no-startup-id i3-msg 'nitrogen --restore'
-exec --no-startup-id i3-msg 'picom'
-
-exec --no-startup-id i3-msg 'workspace 2; exec sleep 1 && i3-sensible-terminal'
-
-exec --no-startup-id i3-msg 'setxkbmap -layout es,us -option grp:alt_space_toggle'
-exec --no-startup-id i3-msg 'setxkbmap -option ctrl:nocaps'
+# Startup script
+exec --no-startup-id ~/.config/Scripts/i3_startup.sh
 
 # Start / Restart Polybar
 exec_always ~/.config/Scripts/i3_start_polybar.sh

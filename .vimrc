@@ -64,6 +64,7 @@ inoremap jk <esc><Right>
 noremap j gj
 noremap k gk
 noremap J ddp
+noremap B bbe
 noremap K :call MoveLineUp()<CR>
 nnoremap <leader>j J
 nnoremap <leader>e :vsplit $MYVIMRC<CR>
