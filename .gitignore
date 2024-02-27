@@ -3,4 +3,3 @@
 .vim/pack/*
 .vim/colors/*
 .swp$
-!.vim/colors/themedgehog.vim

@@ -7,6 +7,7 @@ set showcmd								" Enables the command history
 filetype plugin indent on				" Indents the file according to the plugin
 set cc=80								" Set the column to 80 characters
 set nowrap								" Disable line wrap
+set hlsearch
 set incsearch							" Incremental search
 set ignorecase							" Case insensitive when searching lowercase
 set smartcase							" Case sensitive when searching uppercase
@@ -28,13 +29,6 @@ set backspace=indent,eol,start
 " Display tabs as -->
 set list
 set listchars=tab:-->
-
-" Enable plugin installation using vim-plug
-call plug#begin('~/.vim/plugged')
-	Plug 'wakatime/vim-wakatime'
-	Plug 'rust-lang/rust.vim'
-	Plug 'chrisbra/Colorizer'
-call plug#end()
 
 " Jump to the last position of the file
 if has('autocmd')
@@ -69,3 +63,10 @@ noremap K :call MoveLineUp()<CR>
 nnoremap <leader>j J
 nnoremap <leader>e :vsplit $MYVIMRC<CR>
 nnoremap <leader>s :source $MYVIMRC<CR>
+
+" Enable plugin installation using vim-plug
+call plug#begin('~/.vim/plugged')
+	Plug 'wakatime/vim-wakatime'
+	Plug 'rust-lang/rust.vim'
+	Plug 'chrisbra/Colorizer'
+call plug#end()
