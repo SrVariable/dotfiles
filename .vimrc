@@ -7,7 +7,7 @@ set showcmd								" Enables the command history
 filetype plugin indent on				" Indents the file according to the plugin
 set cc=80								" Set the column to 80 characters
 set nowrap								" Disable line wrap
-set hlsearch
+set hlsearch							" Highlight matching searches
 set incsearch							" Incremental search
 set ignorecase							" Case insensitive when searching lowercase
 set smartcase							" Case sensitive when searching uppercase
@@ -63,10 +63,12 @@ noremap K :call MoveLineUp()<CR>
 nnoremap <leader>j J
 nnoremap <leader>e :vsplit $MYVIMRC<CR>
 nnoremap <leader>s :source $MYVIMRC<CR>
+nnoremap <leader>f :FZF ~<CR>
 
 " Enable plugin installation using vim-plug
 call plug#begin('~/.vim/plugged')
 	Plug 'wakatime/vim-wakatime'
 	Plug 'rust-lang/rust.vim'
 	Plug 'chrisbra/Colorizer'
+	Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 call plug#end()

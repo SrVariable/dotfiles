@@ -129,6 +129,9 @@ bindsym $mod+r mode "resize"
 # Remove side borders
 default_border normal 0
 
+# Align window titles to the center
+title_align center
+
 # Remove every border for these programs 
 for_window [class="Brave-browser"] border none
 for_window [class="Alacritty"] border none
@@ -137,9 +140,10 @@ for_window [class="discord"] border none
 for_window [class="obsidian"] border none
 for_window [class="Gimp-2.10"] border none
 for_window [class="Code"] border none
+for_window [class="YOOOW"] floating enable
 
 # Set layout for workspaces
-for_window [workspace=1] layout floating
+#for_window [workspace=1] layout floating
 for_window [workspace=2] layout tabbed
 
 # Screenshots
