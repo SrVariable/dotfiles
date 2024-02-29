@@ -64,6 +64,8 @@ nnoremap <leader>j J
 nnoremap <leader>e :vsplit $MYVIMRC<CR>
 nnoremap <leader>s :source $MYVIMRC<CR>
 nnoremap <leader>f :FZF ~<CR>
+nnoremap <leader>te :NERDTreeToggle<CR>
+nnoremap <leader>tf :NERDTreeFind<CR>
 
 " Enable plugin installation using vim-plug
 call plug#begin('~/.vim/plugged')
@@ -71,4 +73,5 @@ call plug#begin('~/.vim/plugged')
 	Plug 'rust-lang/rust.vim'
 	Plug 'chrisbra/Colorizer'
 	Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+	Plug 'preservim/nerdtree'
 call plug#end()

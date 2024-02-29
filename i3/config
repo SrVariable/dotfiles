@@ -127,7 +127,8 @@ bindsym $mod+r mode "resize"
 # <--------------->
 
 # Remove side borders
-default_border normal 0
+#default_border normal 0
+default_border pixel 0
 
 # Align window titles to the center
 title_align center
@@ -140,10 +141,10 @@ for_window [class="discord"] border none
 for_window [class="obsidian"] border none
 for_window [class="Gimp-2.10"] border none
 for_window [class="Code"] border none
-for_window [class="YOOOW"] floating enable
+for_window [class="YOOOW"] floating enable border normal 0
 
 # Set layout for workspaces
-#for_window [workspace=1] layout floating
+for_window [workspace=1] layout floating
 for_window [workspace=2] layout tabbed
 
 # Screenshots

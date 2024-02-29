@@ -143,12 +143,6 @@ case ":$PATH:" in
 	*) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 
-wrs() {
-	source $HOME/Magia/Python/WRScrapper/.venv/bin/activate
-	python3 $HOME/Magia/Python/WRScrapper/main.py $1
-	deactivate
-}
-
 # cargo
 . "$HOME/.cargo/env"
 
