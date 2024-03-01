@@ -142,6 +142,7 @@ for_window [class="obsidian"] border none
 for_window [class="Gimp-2.10"] border none
 for_window [class="Code"] border none
 for_window [class="YOOOW"] floating enable border normal 0
+for_window [class="chatterino"] floating enable
 
 # Set layout for workspaces
 for_window [workspace=1] layout floating
@@ -166,14 +167,13 @@ bindsym XF86AudioPrev exec ~/.config/Scripts/i3_mediakeys.sh 3
 # Gaps
 # gaps inner 10
 
-# Move to the urgent workspace
-bindsym $mod+u [urgent=latest] focus
-
 # Bind app shortcuts
 bindsym $mod+Shift+g exec flatpak run org.gimp.GIMP//stable
 bindsym $mod+Shift+o exec obsidian
 
 # Move windows to Workspaces
+assign [class="Brave-browser"] → 1
+assign [class="chatterino"] → 1
 assign [class="Gimp-2.10"] → 3
 assign [class="obsidian"] → 4
 assign [class="Code"] → 5

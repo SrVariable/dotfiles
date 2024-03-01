@@ -67,6 +67,9 @@ nnoremap <leader>f :FZF ~<CR>
 nnoremap <leader>te :NERDTreeToggle<CR>
 nnoremap <leader>tf :NERDTreeFind<CR>
 
+" Snippets
+" TODO
+
 " Enable plugin installation using vim-plug
 call plug#begin('~/.vim/plugged')
 	Plug 'wakatime/vim-wakatime'
