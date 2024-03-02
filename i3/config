@@ -147,6 +147,7 @@ for_window [class="chatterino"] floating enable
 # Set layout for workspaces
 for_window [workspace=1] layout floating
 for_window [workspace=2] layout tabbed
+for_window [workspace=10] layout floating
 
 # Screenshots
 bindsym Print exec --no-startup-id sh -c 'maim "$HOME/Pictures/$(date +\%Y-\%m-\%d_\%H:\%M:\%S).png"'
@@ -175,6 +176,7 @@ bindsym $mod+Shift+o exec obsidian
 assign [class="Brave-browser"] → 1
 assign [class="chatterino"] → 1
 assign [class="Gimp-2.10"] → 3
+assign [class="Ld-linux-x86-64.so.2"] → 3
 assign [class="obsidian"] → 4
 assign [class="Code"] → 5
 assign [class="Vmplayer"] → 6
