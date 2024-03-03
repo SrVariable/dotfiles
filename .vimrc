@@ -61,8 +61,7 @@ noremap J ddp
 noremap B bbe
 noremap K :call MoveLineUp()<CR>
 nnoremap <leader>j J
-nnoremap <leader>e :vsplit $MYVIMRC<CR>
-nnoremap <leader>s :source $MYVIMRC<CR>
+nnoremap <leader>s :w<CR>
 nnoremap <leader>f :FZF ~<CR>
 nnoremap <leader>te :NERDTreeToggle<CR>
 nnoremap <leader>tf :NERDTreeFind<CR>
