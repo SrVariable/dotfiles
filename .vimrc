@@ -16,6 +16,7 @@ let g:copilot_enabled = 0				" Disable copilot
 let mapleader=" "						" Set leader key to Space
 set termguicolors						" Enable 24-bit color
 colorscheme themedgehog					" Set the color scheme
+set tags=./tags;/;~/tags				" Set tags
 
 " Remove bell
 set visualbell
@@ -65,6 +66,8 @@ nnoremap <leader>s :w<CR>
 nnoremap <leader>f :FZF ~<CR>
 nnoremap <leader>te :NERDTreeToggle<CR>
 nnoremap <leader>tf :NERDTreeFind<CR>
+nnoremap gr <C-]>
+nnoremap gb <C-t>
 
 " Snippets
 " TODO
