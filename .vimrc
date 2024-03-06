@@ -7,7 +7,7 @@ set showcmd								" Enables the command history
 filetype plugin indent on				" Indents the file according to the plugin
 set cc=80								" Set the column to 80 characters
 set nowrap								" Disable line wrap
-set hlsearch							" Highlight matching searches
+"set hlsearch							" Highlight matching searches
 set incsearch							" Incremental search
 set ignorecase							" Case insensitive when searching lowercase
 set smartcase							" Case sensitive when searching uppercase
