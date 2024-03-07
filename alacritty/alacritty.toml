@@ -1,6 +1,6 @@
 [window]
-#opacity = 1
-opacity = 0.97
+opacity = 1
+#opacity = 0.97
 
 [font]
 normal = { family = "terminal-font", style = "Regular"}
