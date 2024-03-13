@@ -158,3 +158,5 @@ if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]]\
 	&& [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
 	$HOME/.config/Scripts/tmux_session.sh
 fi
+
+export LS_COLORS='*Makefile=38;5;172:*.md=38;5;207:'
