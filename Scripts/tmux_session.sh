@@ -19,4 +19,4 @@ tmux send-keys -t ${SESSIONS[0]}:main "clear" C-m; sleep 0.5
 tmux send-keys -t ${SESSIONS[1]}:main "cd $HOME/GitRepos/push_swap" C-m; sleep 0.5
 tmux send-keys -t ${SESSIONS[1]}:main "clear" C-m; sleep 0.5
 
-tmux attach -t ${SESSIONS[0]}
+tmux attach -t ${SESSIONS[1]}
