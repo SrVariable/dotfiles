@@ -15,8 +15,7 @@ let g:rustfmt_autosave = 1				" Automatically format the rust code when saving
 let g:copilot_enabled = 0				" Disable copilot
 let mapleader=" "						" Set leader key to Space
 set termguicolors						" Enable 24-bit color
-"colorscheme themedgehog					" Set the color scheme
-colorscheme monokai						" Set the color scheme
+colorscheme themedgehog					" Set the color scheme
 set tags=./tags;../tags;/;~/tags		" Set tags
 
 " Remove bell

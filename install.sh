@@ -2,7 +2,7 @@
 
 backup_dir="$HOME/Desktop/backup"
 config_files=$(find . -maxdepth 1 -type d ! \( -name ".git" -o -name "." -o -name ".vim" \) -printf "%P ")
-home_files=$(find . -maxdepth 1 \( -type f -o -type d \) \( -name ".vim*" -o -name ".bashrc" \) -printf "%P ")
+home_files=$(find . -maxdepth 1 \( -type f -o -type d \) \( -name ".vim*" -o -name ".bashrc" -o -name ".bash_aliases" -o -name ".zshrc" -o -name ".zsh_aliases" \) -printf "%P ")
 
 create_backup() {
 	i=0
