@@ -43,7 +43,7 @@ alias wrs='$HOME/GitRepos/Scripts/Bash/WordReferenceScrapper.sh'
 alias gcmy='$HOME/GitRepos/Scripts/Bash/git_clone_my.sh'
 
 # FZF
-alias fzfd='cd "$(find ~/* -type d | fzf)"'
+alias fzfd='cd "$(find ~/* -type d ! -name ".git" | fzf)"'
 
 # Gnome Text Editor
 alias gte='gnome-text-editor'
