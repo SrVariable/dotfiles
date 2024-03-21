@@ -80,3 +80,5 @@ if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]]\
         && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
         $HOME/.config/Scripts/tmux_session.sh
 fi
+
+eval "$(zoxide init zsh)"
