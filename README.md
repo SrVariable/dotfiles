@@ -6,8 +6,6 @@ My custom configurations for bash, vim, i3, polybar...
 
 ## Requirements
 
-
-- `alacritty`
 - `dunst`
 - `i3`
 - `fonts-font-awesome`
@@ -22,8 +20,7 @@ My custom configurations for bash, vim, i3, polybar...
 - `xdotool`
 
 ```Shell
-sudo apt install -y alacritty \
-                    dunst \
+sudo apt install -y dunst \
                     i3 \
                     fonts-font-awesome \
                     maim \
@@ -31,7 +28,6 @@ sudo apt install -y alacritty \
                     nitrogen \
                     playerctl \
                     picom \
-                    polybar \
                     vim \
                     xclip \
                     xdotool
