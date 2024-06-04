@@ -28,7 +28,6 @@ sudo apt install -y dunst \
                     nitrogen \
                     playerctl \
                     picom \
-                    polybar \
                     vim \
                     xclip \
                     xdotool
