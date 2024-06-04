@@ -17,6 +17,20 @@ let mapleader=" "						" Set leader key to Space
 set termguicolors						" Enable 24-bit color
 colorscheme themedgehog					" Set the color scheme
 set tags=./tags;../tags;/;~/tags		" Set tags
+set hidden								" Disable warning when switching between buffers
+"set foldmarker={,}
+set foldmarker=<<<<<<<,>>>>>>>
+set foldmethod=marker
+set nofoldenable
+
+" Set paths to find files
+set path+=~/docs
+set path+=/usr/include
+set path+=/usr/include/*
+set path+=/usr/include/*/*
+set path+=../*
+set path+=../*/*
+set path+=../*/*/*
 
 " Remove bell
 set visualbell
@@ -39,17 +53,8 @@ if has('autocmd')
 		\endif
 endif
 
-function! MoveLineUp()
-    if line('.') == line('$') && line('.') != 1
-        normal! ddP
-    else
-        normal! ddkP
-    endif
-endfunction
-
 " Custom keybindings
 noremap <F2> m1gg=G'1
-nnoremap , :
 nnoremap U <C-r>
 nnoremap - /
 inoremap ( ()<Left>
@@ -58,9 +63,6 @@ inoremap { {}<Left>
 inoremap jk <esc><Right>
 noremap j gj
 noremap k gk
-noremap J ddp
-noremap B bbe
-noremap K :call MoveLineUp()<CR>
 nnoremap <leader>j J
 nnoremap <leader>s :w<CR>
 nnoremap <leader>f :FZF ~<CR>
@@ -68,6 +70,20 @@ nnoremap <leader>te :NERDTreeToggle<CR>
 nnoremap <leader>tf :NERDTreeFind<CR>
 nnoremap gr <C-]>
 nnoremap gb <C-t>
+nnoremap <leader>1 :b1<CR>
+nnoremap <leader>2 :b2<CR>
+nnoremap <leader>3 :b3<CR>
+nnoremap <leader>4 :b4<CR>
+nnoremap <leader>n :bn<CR>
+nnoremap <leader>p :bp<CR>
+nnoremap <leader>d :bd<CR>
+nnoremap <leader>hs :read !python3 ~/GitRepos/Scripts/Python/header_gen.py /\* 
+nnoremap <leader>hh :read !python3 ~/GitRepos/Scripts/Python/header_gen.py \\# 
+nnoremap <leader>hq :read !python3 ~/GitRepos/Scripts/Python/header_gen.py \" 
+nnoremap <leader>mr :make run ARGS=""<Left>
+nnoremap gl :13<CR>$hgf
+nnoremap K :execute 'vert Man' . 'expand('<cword>')'<CR>
+nnoremap <leader>M :vert Man 
 
 " Snippets
 " TODO
@@ -76,7 +92,8 @@ nnoremap gb <C-t>
 call plug#begin('~/.vim/plugged')
 	Plug 'wakatime/vim-wakatime'
 	Plug 'rust-lang/rust.vim'
-	Plug 'chrisbra/Colorizer'
 	Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 	Plug 'preservim/nerdtree'
 call plug#end()
+
+runtime! ftplugin/man.vim
