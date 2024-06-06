@@ -81,9 +81,11 @@ nnoremap <leader>hs :read !python3 ~/GitRepos/Scripts/Python/header_gen.py /\*
 nnoremap <leader>hh :read !python3 ~/GitRepos/Scripts/Python/header_gen.py \\# 
 nnoremap <leader>hq :read !python3 ~/GitRepos/Scripts/Python/header_gen.py \" 
 nnoremap <leader>mr :make run ARGS=""<Left>
-nnoremap gl :13<CR>$hgf
+nnoremap gl m1:13<CR>$hgf
 nnoremap K :execute 'vert Man' . 'expand('<cword>')'<CR>
 nnoremap <leader>M :vert Man 
+nnoremap yf vf;y
+nnoremap '1 '1zz
 
 " Snippets
 " TODO
