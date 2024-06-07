@@ -31,6 +31,9 @@ set path+=/usr/include/*/*
 set path+=../*
 set path+=../*/*
 set path+=../*/*/*
+set path+=~/ObsidianVault
+set path+=~/ObsidianVault/*
+set path+=~/ObsidianVault/*/*
 
 " Remove bell
 set visualbell
