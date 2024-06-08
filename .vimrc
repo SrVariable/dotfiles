@@ -79,14 +79,13 @@ nnoremap <leader>3 :b3<CR>
 nnoremap <leader>4 :b4<CR>
 nnoremap <leader>n :bn<CR>
 nnoremap <leader>p :bp<CR>
-nnoremap <leader>d :bd<CR>
+nnoremap <leader>d :bd!<CR>
 nnoremap <leader>hs :read !python3 ~/GitRepos/Scripts/Python/header_gen.py /\* 
 nnoremap <leader>hh :read !python3 ~/GitRepos/Scripts/Python/header_gen.py \\# 
 nnoremap <leader>hq :read !python3 ~/GitRepos/Scripts/Python/header_gen.py \" 
 nnoremap <leader>mr :make run ARGS=""<Left>
 nnoremap gl m1:13<CR>$hgf
 nnoremap K :execute 'vert Man' . 'expand('<cword>')'<CR>
-nnoremap <leader>M :vert Man 
 nnoremap yf vf;y
 nnoremap '1 '1zz
 
@@ -102,3 +101,6 @@ call plug#begin('~/.vim/plugged')
 call plug#end()
 
 runtime! ftplugin/man.vim
+
+command! -nargs=1 VMan vsplit | edit /tmp/doc | execute 'silent r! man <args>' | set filetype=man
+nnoremap <leader>M :VMan 
