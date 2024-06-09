@@ -173,6 +173,8 @@ bindsym $mod+Shift+g exec flatpak run org.gimp.GIMP//stable
 bindsym $mod+Shift+p exec flatpak run org.mypaint.MyPaint
 bindsym $mod+Shift+o exec obsidian
 
+bindsym $mod+p exec pkill python3
+
 # Move windows to Workspaces
 assign [class="Brave-browser"] → 1
 assign [class="firefox"] → 1

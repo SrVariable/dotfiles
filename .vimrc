@@ -88,6 +88,8 @@ nnoremap gl m1:13<CR>$hgf
 nnoremap K :execute 'vert Man' . 'expand('<cword>')'<CR>
 nnoremap yf vf;y
 nnoremap '1 '1zz
+nnoremap <leader>h1 :Stdheader<CR>
+nnoremap <leader>h2 :Hedgehog<CR>
 
 " Snippets
 " TODO
