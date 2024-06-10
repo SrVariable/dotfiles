@@ -141,12 +141,10 @@ for_window [class="discord"] border none
 for_window [class="obsidian"] border none
 for_window [class="Gimp-2.10"] border none
 for_window [class="Code"] border none
-for_window [class="chatterino"] floating enable
 
 # Set layout for workspaces
-for_window [workspace=1] layout tabbed
 for_window [workspace=2] layout tabbed
-for_window [workspace=3] layout tabbed
+#for_window [workspace=3] layout tabbed
 for_window [workspace=10] layout tabbed
 
 # Screenshots
@@ -172,6 +170,7 @@ bindsym XF86AudioPrev exec ~/.config/Scripts/i3_mediakeys.sh 3
 bindsym $mod+Shift+g exec flatpak run org.gimp.GIMP//stable
 bindsym $mod+Shift+p exec flatpak run org.mypaint.MyPaint
 bindsym $mod+Shift+o exec obsidian
+bindsym $mod+b exec boomer
 
 bindsym $mod+p exec pkill python3
 
@@ -182,6 +181,7 @@ assign [class="chatterino"] → 1
 assign [class="Gimp-2.10"] → 3
 assign [class="obsidian"] → 4
 assign [class="Code"] → 5
+assign [class="obs"] → 6
 assign [class="Slack"] → 7
 assign [class="discord"] → 9
 assign [class="Spotify"] → 10
