@@ -11,11 +11,11 @@ create_backup() {
 	backup_config_files=()
 	backup_home_files=()
 
-	for word in "${temp_config[@]}"; do
-		backup_config_files+=("$HOME/.config/$word")
+	for file in "${temp_config[@]}"; do
+		backup_config_files+=("$HOME/.config/$file")
 	done
-	for word in "${temp_home[@]}"; do
-		backup_home_files+=("$HOME/$word")
+	for file in "${temp_home[@]}"; do
+		backup_home_files+=("$HOME/$file")
 	done
 	while [[ -d $backup_dir/$i ]]; do
 		((++i))
@@ -98,10 +98,10 @@ case $1 in
 		create_nitrogen_config
 		install_dotfiles
 		;;
-	"--restore" | "-r")
+	"-r" | "--restore")
 		restore_from_backup
 		;;
-	"--help" | "-h")
+	"-h" | "--help")
 		printf "Usage: $0 [flag]\n"
 		formatted_message "Flag" "Description"
 		formatted_message "-b, --backup" "Install dotfiles with backup"
