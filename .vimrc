@@ -56,27 +56,24 @@ if has('autocmd')
 		\endif
 endif
 
+command! -nargs=1 VMan vsplit | edit /tmp/doc | execute 'silent r! man <args>' | set filetype=man
+
 " Custom keybindings
-noremap <F2> m1gg=G'1
-nnoremap U <C-r>
-nnoremap - /
 inoremap ( ()<Left>
 inoremap [ []<Left>
 inoremap { {}<Left>
 inoremap jk <esc><Right>
+noremap <F2> m1gg=G'1
+nnoremap U <C-r>
+nnoremap - /
 noremap j gj
 noremap k gk
 nnoremap <leader>j J
-nnoremap <leader>s :w<CR>
 nnoremap <leader>f :FZF ~<CR>
 nnoremap <leader>te :NERDTreeToggle<CR>
 nnoremap <leader>tf :NERDTreeFind<CR>
 nnoremap gr <C-]>
 nnoremap gb <C-t>
-nnoremap <leader>1 :b1<CR>
-nnoremap <leader>2 :b2<CR>
-nnoremap <leader>3 :b3<CR>
-nnoremap <leader>4 :b4<CR>
 nnoremap <leader>n :bn<CR>
 nnoremap <leader>p :bp<CR>
 nnoremap <leader>d :bd!<CR>
@@ -87,9 +84,11 @@ nnoremap <leader>mr :make run ARGS=""<Left>
 nnoremap gl m1:13<CR>$hgf
 nnoremap K :execute 'vert Man' . 'expand('<cword>')'<CR>
 nnoremap yf vf;y
+nnoremap yp vf)y
 nnoremap '1 '1zz
 nnoremap <leader>h1 :Stdheader<CR>
 nnoremap <leader>h2 :Hedgehog<CR>
+nnoremap <leader>M :VMan 
 
 " Snippets
 " TODO
@@ -103,6 +102,3 @@ call plug#begin('~/.vim/plugged')
 call plug#end()
 
 runtime! ftplugin/man.vim
-
-command! -nargs=1 VMan vsplit | edit /tmp/doc | execute 'silent r! man <args>' | set filetype=man
-nnoremap <leader>M :VMan 
