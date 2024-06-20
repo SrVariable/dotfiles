@@ -91,7 +91,7 @@ nnoremap <leader>h2 :Hedgehog<CR>
 nnoremap <leader>M :VMan 
 
 " Snippets
-" TODO
+nnoremap <leader>,d :-1read ~/.vim/snippets/daily.vim<CR>6ji
 
 " Enable plugin installation using vim-plug
 call plug#begin('~/.vim/plugged')
