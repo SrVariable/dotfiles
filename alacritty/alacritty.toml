@@ -16,7 +16,7 @@ blink_timeout = 0
 foreground = "#ffbbff"
 dim_foreground = "#ff0000"
 bright_foreground = "#0000ff"
-background = "#1f2024"
+background = "#202020"
 
 [colors.selection]
 text = "#582265"
@@ -51,3 +51,7 @@ blue = "#0067ff"
 magenta = "#b963dc"
 cyan = "#0099cc"
 white = "#ffffff"
+
+[colors.cursor]
+text = "#101010"
+cursor = "#ebe733"
