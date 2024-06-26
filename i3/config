@@ -195,11 +195,11 @@ exec --no-startup-id ~/.config/Scripts/i3_startup.sh
 bar {
 	status_command i3status
 	colors {
-		statusline			#ffffff
-		background			#303030
-		focused_workspace	#808080 #808080 #ffffff
-		inactive_workspace	#505050 #505050 #ffffff
-		active_workspace	#505050 #505050 #ffffff
-		urgent_workspace	#303030 #ff3030 #ffffff
+		statusline			#303030
+		background			#b6b9b6
+		focused_workspace	#505050 #505050 #ffffd7
+		inactive_workspace	#888888 #888888 #ffffd7
+		active_workspace	#888888 #888888 #ffffd7
+		urgent_workspace	#303030 #ff3030 #ffffd7
 	}
 }

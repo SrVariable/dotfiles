@@ -13,14 +13,14 @@ blink_interval = 500
 blink_timeout = 0
 
 [colors.primary]
-foreground = "#ffbbff"
+foreground = "#202020"
 dim_foreground = "#ff0000"
 bright_foreground = "#0000ff"
-background = "#202020"
+background = "#ffffd7"
 
 [colors.selection]
-text = "#582265"
-background = "CellForeground"
+text = "#ffffd7"
+background = "#202020"
 
 [colors.normal]
 black = "#1f2024"
