@@ -171,6 +171,7 @@ bindsym $mod+Shift+g exec flatpak run org.gimp.GIMP//stable
 bindsym $mod+Shift+p exec flatpak run org.mypaint.MyPaint
 bindsym $mod+Shift+o exec obsidian
 bindsym $mod+b exec boomer
+bindsym $mod+c exec grayscale
 
 bindsym $mod+p exec pkill python3
 
