@@ -53,5 +53,5 @@ cyan = "#0099cc"
 white = "#ffffff"
 
 [colors.cursor]
-text = "#101010"
-cursor = "#ebe733"
+text = "#ffffff"
+cursor = "#404040"
