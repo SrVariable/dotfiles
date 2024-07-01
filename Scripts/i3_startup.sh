@@ -8,3 +8,4 @@ i3-msg "exec brave-browser"
 i3-msg "workspace 2; exec i3-sensible-terminal"
 i3-msg "exec spotify"
 i3-msg "exec discord"
+$HOME/GitRepos/Scripts/Bash/set_system_appearance.sh --gray
