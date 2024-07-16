@@ -16,7 +16,7 @@ done
 
 tmux send-keys -t ${SESSIONS[0]}:main "cd $HOME/GitRepos/roadmap-retos-programacion/Roadmap" C-m; sleep 0.1
 tmux send-keys -t ${SESSIONS[0]}:main "clear" C-m
-tmux send-keys -t ${SESSIONS[1]}:main "cd $HOME/GitRepos/philosophers/philo" C-m; sleep 0.1
+tmux send-keys -t ${SESSIONS[1]}:main "cd $HOME/GitRepos/minishell" C-m; sleep 0.1
 tmux send-keys -t ${SESSIONS[1]}:main "clear" C-m
 
 tmux attach -t ${SESSIONS[1]}
