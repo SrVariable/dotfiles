@@ -180,6 +180,7 @@ assign [class="Brave-browser"] → 1
 assign [class="firefox"] → 1
 assign [class="chatterino"] → 1
 assign [class="Gimp-2.10"] → 3
+assign [class="MyPaint"] → 3
 assign [class="obsidian"] → 4
 assign [class="Code"] → 5
 assign [class="obs"] → 6
