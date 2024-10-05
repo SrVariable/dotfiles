@@ -1,0 +1,9 @@
+---
+tags:
+  - Journal
+---
+# Day
+---
+
+# Thoughts
+---
