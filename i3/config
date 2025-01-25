@@ -245,6 +245,7 @@ bar {
 
 # Control cursor pointer with keyboard, inspired from: https://www.reddit.com/r/i3wm/comments/3btki2/use_the_mouse_cursor_from_the_keyboard
 set $mod2 Mod1
+
 mode "mouse" {
 
 	set $slow 1
