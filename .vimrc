@@ -64,8 +64,6 @@ inoremap [ []<Left>
 inoremap { {}<Left>
 nnoremap U <C-r>
 nnoremap - /
-noremap j gj
-noremap k gk
 nnoremap <C-c> <CMD>nohlsearch<CR>
 nnoremap gr <C-]>
 nnoremap gb <C-t>
