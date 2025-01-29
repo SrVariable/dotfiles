@@ -47,7 +47,7 @@ set backspace=indent,eol,start
 
 " Display tabs as -->
 set list
-set listchars=tab:-->
+set listchars=tab:-->,space:·
 
 " Jump to the last position of the file
 if has('autocmd')
@@ -100,7 +100,7 @@ nnoremap <leader>h2 :Hedgehog<CR>
 "colorscheme themedgehog
 
 set background=dark
-colorscheme iceberg
+colorscheme themedgehog
 
 " For comment sections
 nnoremap <leader>hs :read !python3 ~/GitRepos/Scripts/Python/header_gen.py /\* 
