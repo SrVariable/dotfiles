@@ -47,7 +47,7 @@ set backspace=indent,eol,start
 
 " Display tabs as -->
 set list
-set listchars=tab:-->,space:·
+set listchars=tab:»\ ,space:·
 
 " Jump to the last position of the file
 if has('autocmd')
