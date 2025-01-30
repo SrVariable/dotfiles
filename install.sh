@@ -28,6 +28,7 @@ create_backup() {
 	printf -- "Created succesfully!\n"
 }
 
+# TODO: Maybe use symlinks?
 install_dotfiles() {
 	printf -- "Installing dotfiles...\n"
 	mkdir -p $HOME/.config
@@ -68,34 +69,12 @@ formatted_message() {
 	printf -- "%s\n" "$formatted_option$2"
 }
 
-create_nitrogen_config() {
-	printf "[geometry]
-	posx=688
-	posy=37
-	sizex=668
-	sizey=721
-
-	[nitrogen]
-	view=icon
-	recurse=true
-	sort=alpha
-	icon_caps=false
-	dirs=$HOME/.config/nitrogen;\n" > nitrogen/nitrogen.cfg
-
-	printf "[xin_-1]
-	file=$HOME/.config/nitrogen/Wallpaper.jpg
-	mode=4
-	bgcolor=#000000\n" > nitrogen/bg-saved.cfg
-}
-
 case $1 in
 	"" | "-b" | "--backup")
 		create_backup
-		create_nitrogen_config
 		install_dotfiles
 		;;
 	"-i" | "--install")
-		create_nitrogen_config
 		install_dotfiles
 		;;
 	"-r" | "--restore")
