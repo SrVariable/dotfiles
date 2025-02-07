@@ -95,10 +95,12 @@ nnoremap <leader>h1 :Stdheader<CR>
 nnoremap <leader>h2 :Hedgehog<CR>
 
 " To install: https://github.com/srvariable/themedgehog
-"colorscheme themedgehog
+colorscheme themedgehog
 
 set background=dark
-colorscheme themedgehog
+"colorscheme base16-black-metal-burzum
+"colorscheme base16-greenscreen
+"colorscheme base16-ia-light
 
 " For comment sections
 nnoremap <leader>hs :read !python3 ~/GitRepos/Scripts/Python/header_gen.py /\* 
@@ -120,3 +122,34 @@ autocmd FileType c,cpp setlocal cc=80
 
 let g:user42 = "ribana-b"
 let g:mail42 = "ribana-b@student.42malaga.com"
+
+
+function! TestThemes()
+    " Path to the colors directory
+    let colors_dir = expand('~/.vim/colors')
+
+    " Get a list of all color scheme files (*.vim) in the directory
+    let themes = globpath(colors_dir, '*.vim', 0, 1)
+
+    " Extract the base name of each theme (without path and extension)
+    let themes = map(themes, 'fnamemodify(v:val, ":t:r")')
+
+    " Loop through each theme
+    for theme in themes
+        try
+            " Set the colorscheme
+            execute 'colorscheme ' . theme
+
+            " Print the current theme name to the statusline
+			redraw
+            echo 'Testing theme: ' . theme
+
+            sleep 3
+        catch /E185:/  " Catch errors when a colorscheme is not valid
+            echo 'Error loading theme: ' . theme
+        endtry
+    endfor
+
+    " Restore the original theme (optional)
+    echo 'Theme testing completed!'
+endfunction
