@@ -182,6 +182,7 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # Remove every border for these programs 
+for_window [class="firefox"] border none
 for_window [class="Brave-browser"] border none
 for_window [class="Alacritty"] border none
 for_window [class="Spotify"] border none
@@ -199,7 +200,6 @@ for_window [workspace=2] layout tabbed
 #=====================
 # Remove border for Chrome windows
 #for_window [class="Google-chrome"] border none
-#for_window [class="firefox"] border none
 
 #no_focus [all]
 #focus_on_window_activation none
