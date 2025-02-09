@@ -1,22 +1,22 @@
 [window]
 opacity = 1
-#opacity = 0.97
 
 [font]
-#normal = { family = "terminal-font", style = "Regular"}
-size = 10.0
-builtin_box_drawing = true
+normal = { family = "IosevkaTerm Nerd Font Mono", style = "Regular" }
+#normal = { family = "MonaspiceNe NerdFont Propo", style = "Regular" }
+size = 13.0
 
 [cursor]
-style = {shape = "Block", blinking = "On"}
-blink_interval = 500
-blink_timeout = 0
+style = { shape = "Block", blinking = "Always" }
+
+[colors.cursor]
+cursor = "#ffbbff"
 
 [colors.primary]
 foreground = "#ffbbff"
 dim_foreground = "#ff0000"
 bright_foreground = "#0000ff"
-background = "#202020"
+background = "#272727"
 
 [colors.selection]
 text = "#582265"
@@ -51,7 +51,3 @@ blue = "#0067ff"
 magenta = "#b963dc"
 cyan = "#0099cc"
 white = "#ffffff"
-
-[colors.cursor]
-text = "#101010"
-cursor = "#ebe733"
