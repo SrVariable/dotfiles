@@ -3,7 +3,6 @@ opacity = 1
 
 [font]
 normal = { family = "IosevkaTerm Nerd Font Mono", style = "Regular" }
-#normal = { family = "MonaspiceNe NerdFont Propo", style = "Regular" }
 size = 13.0
 
 [cursor]
@@ -13,10 +12,10 @@ style = { shape = "Block", blinking = "Always" }
 cursor = "#ffbbff"
 
 [colors.primary]
-foreground = "#ffbbff"
+foreground = "#dddddd"
 dim_foreground = "#ff0000"
 bright_foreground = "#0000ff"
-background = "#272727"
+background = "#222222"
 
 [colors.selection]
 text = "#582265"
