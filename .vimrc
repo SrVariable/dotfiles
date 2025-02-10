@@ -21,6 +21,7 @@ set tags=./tags;../tags;/;~/tags		" Set tags
 set hidden								" Disable warning when switching between buffers
 set noswapfile
 set mouse=a
+set cursorline
 "set foldmarker={,}
 set foldmarker=<<<<<<<,>>>>>>>
 set foldmethod=marker
@@ -95,7 +96,7 @@ nnoremap <leader>h1 :Stdheader<CR>
 nnoremap <leader>h2 :Hedgehog<CR>
 
 " To install: https://github.com/srvariable/themedgehog
-colorscheme themedgehog
+" colorscheme themedgehog
 
 set background=dark
 "colorscheme base16-black-metal-burzum
@@ -153,3 +154,5 @@ function! TestThemes()
     " Restore the original theme (optional)
     echo 'Theme testing completed!'
 endfunction
+
+colorscheme gen

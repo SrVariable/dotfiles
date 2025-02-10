@@ -10,7 +10,7 @@ style = { shape = "Block", blinking = "Always" }
 vi_mode_style = { shape = "Block", blinking = "Always" }
 
 [colors.cursor]
-cursor = "#ffbbff"
+cursor = "#dddddd"
 
 [colors.primary]
 foreground = "#dddddd"
