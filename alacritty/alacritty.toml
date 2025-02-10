@@ -7,46 +7,26 @@ size = 13.0
 
 [cursor]
 style = { shape = "Block", blinking = "Always" }
+vi_mode_style = { shape = "Block", blinking = "Always" }
 
 [colors.cursor]
 cursor = "#ffbbff"
 
 [colors.primary]
 foreground = "#dddddd"
-dim_foreground = "#ff0000"
 bright_foreground = "#0000ff"
 background = "#222222"
 
 [colors.selection]
-text = "#582265"
+text = "#222222"
 background = "CellForeground"
 
 [colors.normal]
-black = "#1f2024"
-red = "#d03636"
-green = "#36b93b"
-yellow = "#eecc44"
-blue = "#0067ff"
-magenta = "#e22bb7"
-cyan = "#0099cc"
-white = "#b7c8d9"
-
-[colors.bright]
-black = "#555555"
-red = "#d03636"
-green = "#36b93b"
-yellow = "#eecc44"
-blue = "#0067ff"
-magenta = "#e22bb7"
-cyan = "#0099cc"
-white = "#b7c8d9"
-
-[colors.dim]
-black = "#1f2024"
-red = "#d03636"
-green = "#00ff00"
-yellow = "#ffff00"
-blue = "#0067ff"
-magenta = "#b963dc"
-cyan = "#0099cc"
-white = "#ffffff"
+black = "#222222"
+red = "#f25151"
+green = "#51f26c"
+yellow = "#f2ca51"
+blue = "#5194f2"
+magenta = "#f251e5"
+cyan = "#51f2d7"
+white = "#dddddd"

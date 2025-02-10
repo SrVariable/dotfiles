@@ -26,7 +26,7 @@ vim.opt.smarttab = true
 vim.opt.signcolumn = "yes"
 vim.opt.cursorline = true
 vim.opt.inccommand = "split"
-vim.opt.colorcolumn = "80"
+-- vim.opt.colorcolumn = "80"
 
 vim.opt.swapfile = false
 vim.opt.splitright = true
