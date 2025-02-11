@@ -124,7 +124,6 @@ autocmd FileType c,cpp setlocal cc=80
 let g:user42 = "ribana-b"
 let g:mail42 = "ribana-b@student.42malaga.com"
 
-
 function! TestThemes()
     " Path to the colors directory
     let colors_dir = expand('~/.vim/colors')
@@ -155,4 +154,4 @@ function! TestThemes()
     echo 'Theme testing completed!'
 endfunction
 
-colorscheme gen
+colorscheme sorombra
