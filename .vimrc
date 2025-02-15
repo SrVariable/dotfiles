@@ -22,9 +22,7 @@ set hidden								" Disable warning when switching between buffers
 set noswapfile
 set mouse=a
 set cursorline
-"set foldmarker={,}
-set foldmarker=<<<<<<<,>>>>>>>
-set foldmethod=marker
+set foldmethod=indent
 set nofoldenable
 
 " Set paths to find files
@@ -47,8 +45,8 @@ set shiftwidth=4 smarttab
 set backspace=indent,eol,start
 
 " Display tabs as -->
-set list
 set listchars=tab:»\ ,space:·
+set nolist
 
 " Jump to the last position of the file
 if has('autocmd')
@@ -64,7 +62,6 @@ inoremap ( ()<Left>
 inoremap [ []<Left>
 inoremap { {}<Left>
 nnoremap U <C-r>
-nnoremap - /
 nnoremap <C-c> <CMD>nohlsearch<CR>
 nnoremap gr <C-]>
 nnoremap gb <C-t>
@@ -155,3 +152,6 @@ function! TestThemes()
 endfunction
 
 colorscheme sorombra
+
+let g:c_syntax_for_h = 1
+let g:c_no_curly_error = 1

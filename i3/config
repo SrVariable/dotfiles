@@ -191,6 +191,8 @@ for_window [class="obsidian"] border none
 for_window [class="Gimp-2.10"] border none
 for_window [class="Code"] border none
 for_window [class="MyPaint"] border none
+for_window [class="mpv"] border none
+for_window [class="chatterino"] border none
 for_window [class="VirtualBox Machine"] border none floating enable
 for_window [class="Gnome-terminal"] border none floating enable
 
@@ -200,6 +202,9 @@ for_window [workspace=2] layout tabbed
 #=====================
 # Remove border for Chrome windows
 #for_window [class="Google-chrome"] border none
+
+# For my OpenGL projects
+for_window [class="opengl"] floating enable
 
 #no_focus [all]
 #focus_on_window_activation none
