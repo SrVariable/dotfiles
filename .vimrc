@@ -72,6 +72,7 @@ nnoremap yf vf;y
 nnoremap yp vf)y
 nnoremap <leader>k 0<C-v>I//<esc>
 nnoremap <leader>u <C-v>ld<esc>
+noremap K <Nop>
 vnoremap <leader>k 0<C-v>I//<esc>
 vnoremap <leader>u <C-v>ld<esc>
 vnoremap <leader>c !xclip -i -sel c<CR><CR>
