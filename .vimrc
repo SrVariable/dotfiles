@@ -97,6 +97,7 @@ nnoremap <leader>h2 :Hedgehog<CR>
 " colorscheme themedgehog
 
 set background=dark
+colorscheme sorombra
 "colorscheme base16-black-metal-burzum
 "colorscheme base16-greenscreen
 "colorscheme base16-ia-light
@@ -151,8 +152,6 @@ function! TestThemes()
     " Restore the original theme (optional)
     echo 'Theme testing completed!'
 endfunction
-
-colorscheme sorombra
 
 let g:c_syntax_for_h = 1
 let g:c_no_curly_error = 1
