@@ -115,7 +115,6 @@ nnoremap <leader>-hg :-1read ~/.vim/snippets/cpp_header.vim<CR>:execute '%s/FOO/
 " Enable plugin installation using vim-plug: https://github.com/junegunn/vim-plug
 call plug#begin('~/.vim/plugged')
 	Plug 'wakatime/vim-wakatime'
-	Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 call plug#end()
 
 let g:rustfmt_autosave = 1
