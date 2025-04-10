@@ -155,3 +155,4 @@ endfunction
 
 let g:c_syntax_for_h = 1
 let g:c_no_curly_error = 1
+let g:netrw_altv=1
