@@ -13,7 +13,7 @@ end)
 -- vim.opt.list = true
 vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
 
-vim.opt.wrap = true
+vim.opt.wrap = false
 vim.opt.breakindent = true
 
 vim.opt.ignorecase = true
@@ -33,6 +33,8 @@ vim.opt.splitright = true
 vim.opt.splitbelow = true
 vim.g.have_nerd_font = true
 vim.opt.showmode = false
+
+vim.opt.termguicolors = true
 
 vim.api.nvim_create_autocmd("BufReadPost", {
 	callback = function(args)

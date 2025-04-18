@@ -184,6 +184,7 @@ bindsym $mod+r mode "resize"
 # Remove every border for these programs 
 for_window [class="firefox"] border none
 for_window [class="Brave-browser"] border none
+for_window [class="zen"] border none
 for_window [class="Alacritty"] border none
 for_window [class="Spotify"] border none
 for_window [class="discord"] border none

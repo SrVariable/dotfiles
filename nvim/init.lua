@@ -408,6 +408,7 @@ require("lazy").setup({
 				-- But for many setups, the LSP (`ts_ls`) will work just fine
 				-- ts_ls = {},
 				--
+				astro = {},
 
 				lua_ls = {
 					-- cmd = { ... },
@@ -539,12 +540,51 @@ require("lazy").setup({
 			"hrsh7th/cmp-path",
 		},
 		config = function()
+			require("nvim-highlight-colors").setup({
+				render = "background",
+				enable_hex = true,
+				enable_short_hex = true,
+				enable_rgb = true,
+				enable_hsl = true,
+				enable_ansi = true,
+				enable_tailwind = true,
+
+				custom_colors = {
+
+					{ label = "text%-primary", color = "#ed909b" },
+					{ label = "bg%-primary", color = "#ed909b" },
+					{ label = "text%-primary%-tint", color = "#f7b1b9" },
+					{ label = "bg%-primary%-tint", color = "#f7b1b9" },
+					{ label = "text%-primary%-shade", color = "#d86573" },
+					{ label = "bg%-primary%-shade", color = "#d86573" },
+
+					{ label = "text%-theme%-blue", color = "#2c519d" },
+					{ label = "bg%-theme%-blue", color = "#2c519d" },
+					{ label = "text%-theme%-blue%-tint", color = "#6f93d9" },
+					{ label = "bg%-theme%-blue%-tint", color = "#6f93d9" },
+					{ label = "text%-theme%-blue%-shade", color = "#0e2a61" },
+					{ label = "bg%-theme%-blue%-shade", color = "#0e2a61" },
+
+					{ label = "text%-theme%-yellow", color = "#dbd168" },
+					{ label = "bg%-theme%-yellow", color = "#dbd168" },
+
+					{ label = "text%-theme%-black", color = "#222222" },
+					{ label = "bg%-theme%-black", color = "#222222" },
+
+					{ label = "text%-theme%-white", color = "#dddddd" },
+					{ label = "bg%-theme%-white", color = "#dddddd" },
+				},
+			})
+
 			-- See `:help cmp`
 			local cmp = require("cmp")
 			local luasnip = require("luasnip")
 			luasnip.config.setup({})
 
 			cmp.setup({
+				formatting = {
+					format = require("nvim-highlight-colors").format,
+				},
 				snippet = {
 					expand = function(args)
 						luasnip.lsp_expand(args.body)
@@ -624,10 +664,11 @@ require("lazy").setup({
 		-- change the command in the config to whatever the name of that colorscheme is.
 		--
 		-- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
-		"RRethy/base16-nvim",
+		"SrVariable/gruber-darker.nvim",
 		priority = 1000, -- Make sure to load this before all the other start plugins.
 		init = function()
-			vim.cmd.colorscheme("base16-catppuccin-mocha")
+			--vim.cmd.colorscheme("base16-catppuccin-mocha")
+			vim.cmd.colorscheme("gruber-darker")
 
 			-- You can configure highlights by doing something like:
 			-- vim.cmd.hi("Comment gui=none")
@@ -722,6 +763,18 @@ require("lazy").setup({
 		--    - Incremental selection: Included, see `:help nvim-treesitter-incremental-selection-mod`
 		--    - Show your current context: https://github.com/nvim-treesitter/nvim-treesitter-context
 		--    - Treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
+	},
+
+	{
+		"stevearc/oil.nvim",
+		---@module 'oil'
+		---@type oil.SetupOpts
+		opts = {},
+		-- Optional dependencies
+		dependencies = { { "echasnovski/mini.icons", opts = {} } },
+		-- dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if you prefer nvim-web-devicons
+		-- Lazy loading is not recommended because it is very tricky to make it work correctly in all situations.
+		lazy = false,
 	},
 
 	-- My custom plugins
