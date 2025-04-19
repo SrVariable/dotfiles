@@ -24,6 +24,7 @@ set mouse=a
 set cursorline
 set foldmethod=indent
 set nofoldenable
+set autochdir
 
 " Set paths to find files
 set path+=~/docs
