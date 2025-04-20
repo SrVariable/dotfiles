@@ -53,7 +53,7 @@ floating_modifier $mod
 tiling_drag modifier titlebar
 
 # start a terminal
-bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec kitty
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -186,6 +186,7 @@ for_window [class="firefox"] border none
 for_window [class="Brave-browser"] border none
 for_window [class="zen"] border none
 for_window [class="Alacritty"] border none
+for_window [class="kitty"] border none
 for_window [class="Spotify"] border none
 for_window [class="discord"] border none
 for_window [class="obsidian"] border none

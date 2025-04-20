@@ -48,3 +48,4 @@ vim.api.nvim_create_autocmd("BufReadPost", {
 })
 
 vim.opt.autochdir = true
+vim.opt.conceallevel = 2
