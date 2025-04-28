@@ -53,7 +53,7 @@ floating_modifier $mod
 tiling_drag modifier titlebar
 
 # start a terminal
-bindsym $mod+Return exec kitty
+bindsym $mod+Return exec alacritty
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -181,6 +181,8 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+gaps inner 7px
+
 # Remove every border for these programs 
 for_window [class="firefox"] border none
 for_window [class="Brave-browser"] border none
@@ -199,7 +201,7 @@ for_window [class="VirtualBox Machine"] border none floating enable
 for_window [class="Gnome-terminal"] border none floating enable
 
 for_window [workspace=1] layout tabbed
-for_window [workspace=2] layout tabbed
+# for_window [workspace=2] layout tabbed
 
 #=====================
 # Remove border for Chrome windows
@@ -216,7 +218,7 @@ for_window [class="opengl"] floating enable
 assign [class="spotify"] → 10
 #=====================
 
-bindsym $mod+Shift+p exec flatpak run org.mypaint.MyPaint
+# bindsym $mod+Shift+p exec flatpak run org.mypaint.MyPaint
 
 # Setup Media Keys
 bindsym XF86AudioPlay exec  ~/.config/i3/mediakeys.sh 1
@@ -241,12 +243,12 @@ bindsym $mod+b exec --no-startup-id boomer
 bar {
 	status_command i3status --config ~/.config/i3/i3status.conf
 	colors {
-		statusline			#ffffff
-		background			#303030
-		focused_workspace	#808080 #808080 #ffffff
-		inactive_workspace	#505050 #505050 #ffffff
-		active_workspace	#505050 #505050 #ffffff
-		urgent_workspace	#303030 #ff3030 #ffffff
+		statusline			#dddddd
+		background			#222222
+		focused_workspace	#808080 #808080 #dddddd
+		inactive_workspace	#505050 #505050 #dddddd
+		active_workspace	#505050 #505050 #dddddd
+		urgent_workspace	#303030 #ff3030 #dddddd
 	}
 }
 

@@ -36,7 +36,19 @@ vim.opt.showmode = false
 
 vim.opt.termguicolors = true
 
+vim.opt.autochdir = true
+
+vim.opt.conceallevel = 2
+
+vim.api.nvim_create_augroup("RestoreCursorShape", { clear = true })
+vim.api.nvim_create_autocmd("VimLeave", {
+	group = "RestoreCursorShape",
+	command = "set guicursor=a:ver20-blinkwait400-blinkoff400-blinkon400",
+})
+
+vim.api.nvim_create_augroup("RestoreCursorPosition", { clear = true })
 vim.api.nvim_create_autocmd("BufReadPost", {
+	group = "RestoreCursorPosition",
 	callback = function(args)
 		local valid_line = vim.fn.line([['"]]) >= 1 and vim.fn.line([['"]]) < vim.fn.line("$")
 		local not_commit = vim.b[args.buf].filetype ~= "commit"
@@ -46,6 +58,3 @@ vim.api.nvim_create_autocmd("BufReadPost", {
 		end
 	end,
 })
-
-vim.opt.autochdir = true
-vim.opt.conceallevel = 2
