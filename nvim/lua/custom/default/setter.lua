@@ -36,7 +36,7 @@ vim.opt.showmode = false
 
 vim.opt.termguicolors = true
 
--- vim.opt.autochdir = true
+vim.opt.autochdir = true
 vim.diagnostic.config({ virtual_text = false })
 
 vim.opt.conceallevel = 2
