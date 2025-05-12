@@ -10,7 +10,7 @@ vim.schedule(function()
 	vim.opt.clipboard = "unnamedplus"
 end)
 
--- vim.opt.list = true
+vim.opt.list = true
 vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
 
 vim.opt.wrap = false
