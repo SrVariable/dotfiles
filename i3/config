@@ -50,7 +50,7 @@ floating_modifier $mod
 
 # move tiling windows via drag & drop by left-clicking into the title bar,
 # or left-clicking anywhere into the window while holding the floating modifier.
-tiling_drag modifier titlebar
+# tiling_drag modifier titlebar
 
 # start a terminal
 bindsym $mod+Return exec alacritty
@@ -216,6 +216,7 @@ for_window [class="opengl"] floating enable
 #assign [class="Google-chrome"] → 3
 #assign [class="firefox"] → 3
 assign [class="spotify"] → 10
+#assign [class="Cub3D"] → 10
 #=====================
 
 # bindsym $mod+Shift+p exec flatpak run org.mypaint.MyPaint
