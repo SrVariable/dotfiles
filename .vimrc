@@ -59,9 +59,9 @@ endif
 
 " Custom keybindings
 inoremap jk <esc><Right>
-inoremap ( ()<Left>
-inoremap [ []<Left>
-inoremap { {}<Left>
+" inoremap ( ()<Left>
+" inoremap [ []<Left>
+" inoremap { {}<Left>
 nnoremap U <C-r>
 nnoremap <C-c> <CMD>nohlsearch<CR>
 nnoremap gr <C-]>

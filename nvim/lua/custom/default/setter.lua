@@ -40,12 +40,11 @@ vim.opt.autochdir = true
 vim.diagnostic.config({ virtual_text = false })
 
 vim.opt.conceallevel = 2
-
-vim.api.nvim_create_augroup("RestoreCursorShape", { clear = true })
-vim.api.nvim_create_autocmd("VimLeave", {
-	group = "RestoreCursorShape",
-	command = "set guicursor=a:ver20-blinkwait400-blinkoff400-blinkon400",
-})
+-- vim.api.nvim_create_augroup("RestoreCursorShape", { clear = true })
+-- vim.api.nvim_create_autocmd("VimLeave", {
+-- 	group = "RestoreCursorShape",
+-- 	command = "set guicursor=a:ver20-blinkwait400-blinkoff400-blinkon400",
+-- })
 
 vim.api.nvim_create_augroup("RestoreCursorPosition", { clear = true })
 vim.api.nvim_create_autocmd("BufReadPost", {

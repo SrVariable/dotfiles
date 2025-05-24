@@ -5,8 +5,8 @@ vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagn
 vim.keymap.set("n", "<leader>n", "<cmd>bn<CR>", { desc = "Switch to [N]ext buffer" })
 vim.keymap.set("n", "<leader>p", "<cmd>bp<CR>", { desc = "Switch to [P]revious buffer" })
 vim.keymap.set("n", "<leader>d", "<cmd>bd!<CR>", { desc = "[D]eletes current buffer" })
-vim.keymap.set("n", "<leader>tn", "<cmd>tabnew<CR>", { desc = "[T]ab [N]ew" })
-vim.keymap.set("n", "<leader>tsn", "<cmd>tabnext<CR>", { desc = "[T]ab [S]witch [N]ext" })
-vim.keymap.set("n", "<leader>tsp", "<cmd>tabprev<CR>", { desc = "[T]ab [S]witch [P]revious" })
+vim.keymap.set("n", "<leader>tc", "<cmd>tabnew<CR>", { desc = "[T]ab [C]reate" })
+vim.keymap.set("n", "<leader>tn", "<cmd>tabnext<CR>", { desc = "[T]ab [N]ext" })
+vim.keymap.set("n", "<leader>tp", "<cmd>tabprev<CR>", { desc = "[T]ab [P]revious" })
 
 vim.keymap.set("i", "jk", "<ESC><right>", { desc = "Quit insert mode" })
