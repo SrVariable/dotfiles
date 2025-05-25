@@ -98,10 +98,7 @@ return {
 			local servers = {
 				clangd = {},
 				gopls = {},
-				-- pyright = {},
 				rust_analyzer = {},
-				-- ts_ls = {},
-				astro = {},
 				lua_ls = {
 					-- cmd = { ... },
 					-- filetypes = { ... },
