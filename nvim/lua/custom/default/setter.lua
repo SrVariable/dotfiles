@@ -39,7 +39,7 @@ vim.opt.termguicolors = true
 vim.opt.autochdir = true
 vim.diagnostic.config({ virtual_text = false })
 
-vim.opt.conceallevel = 2
+vim.opt.conceallevel = 0
 -- vim.api.nvim_create_augroup("RestoreCursorShape", { clear = true })
 -- vim.api.nvim_create_autocmd("VimLeave", {
 -- 	group = "RestoreCursorShape",
