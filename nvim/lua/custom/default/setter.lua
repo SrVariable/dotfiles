@@ -58,3 +58,8 @@ vim.api.nvim_create_autocmd("BufReadPost", {
 		end
 	end,
 })
+
+vim.cmd([[
+  filetype plugin indent on
+  syntax enable
+]])
