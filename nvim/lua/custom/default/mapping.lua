@@ -1,59 +1,3 @@
-local function create_section(title, comment_type)
-	title = title .. " Section"
-	local padding = 80 - (2 * #comment_type) - 4
-	local l_padding = math.floor((padding - #title) / 2)
-	local r_padding = (#title % 2 == 0) and l_padding or (l_padding + 1)
-
-	local reversed_comment_type = comment_type:reverse()
-
-	local section = comment_type .. " @" .. string.rep("-", padding) .. "@ " .. reversed_comment_type .. "\n"
-	section = section
-		.. comment_type
-		.. " |"
-		.. string.rep(" ", l_padding)
-		.. title
-		.. string.rep(" ", r_padding)
-		.. "| "
-		.. reversed_comment_type
-		.. "\n"
-	section = section .. comment_type .. " @" .. string.rep("-", padding) .. "@ " .. reversed_comment_type
-
-	return section
-end
-
-local function choose_comment_type(filetype)
-	local comment_type = {
-		default = "#",
-		python = "#",
-		sh = "#",
-		rust = "/*",
-		cpp = "/*",
-		go = "/*",
-		c = "/*",
-		javascript = "/*",
-		typescript = "/*",
-		lua = "--",
-		vim = '"',
-	}
-	return comment_type[filetype] or comment_type.default
-end
-
-local function insert_section()
-	vim.ui.input({ prompt = "Section title: " }, function(input)
-		if not input or input == "" then
-			print("Cancelled")
-			return
-		end
-
-		local ft = vim.opt.filetype
-		local sep = choose_comment_type(ft)
-		local section_text = create_section(input, sep)
-
-		local row = unpack(vim.api.nvim_win_get_cursor(0)) - 1
-		vim.api.nvim_buf_set_lines(0, row, row, false, vim.split(section_text, "\n"))
-	end)
-end
-
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Disable highlighted text" })
 vim.keymap.set("n", "<C-c>", "<cmd>nohlsearch<CR>", { desc = "Disable highlighted text" })
 vim.keymap.set({ "n", "v" }, "K", "<Nop>", { desc = "Disable opening man page" })
@@ -65,4 +9,3 @@ vim.keymap.set("n", "<leader>tc", "<cmd>tabnew<CR>", { desc = "[T]ab [C]reate" }
 vim.keymap.set("n", "<leader>tn", "<cmd>tabnext<CR>", { desc = "[T]ab [N]ext" })
 vim.keymap.set("n", "<leader>tp", "<cmd>tabprev<CR>", { desc = "[T]ab [P]revious" })
 vim.keymap.set("i", "jk", "<ESC><right>", { desc = "Quit insert mode" })
-vim.keymap.set("n", "<leader>is", insert_section, { desc = "Insert Section" })
