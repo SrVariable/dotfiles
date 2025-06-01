@@ -1,0 +1,3 @@
+return {
+	"SrVariable/gensec.nvim",
+}
