@@ -2,7 +2,7 @@
 opacity = 1.0
 
 [font]
-normal = { family = "IosevkaTerm Nerd Font Mono", style = "Regular" }
+normal = { family = "Iosevka Nerd Font Mono", style = "Regular" }
 size = 13.0
 
 [cursor]
