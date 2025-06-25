@@ -1,6 +1,5 @@
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Disable highlighted text" })
 vim.keymap.set("n", "<C-c>", "<cmd>nohlsearch<CR>", { desc = "Disable highlighted text" })
-vim.keymap.set({ "n", "v" }, "K", "<Nop>", { desc = "Disable opening man page" })
 vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
 vim.keymap.set("n", "<leader>n", "<cmd>bn<CR>", { desc = "Switch to [N]ext buffer" })
 vim.keymap.set("n", "<leader>p", "<cmd>bp<CR>", { desc = "Switch to [P]revious buffer" })
@@ -9,3 +8,6 @@ vim.keymap.set("n", "<leader>tc", "<cmd>tabnew<CR>", { desc = "[T]ab [C]reate" }
 vim.keymap.set("n", "<leader>tn", "<cmd>tabnext<CR>", { desc = "[T]ab [N]ext" })
 vim.keymap.set("n", "<leader>tp", "<cmd>tabprev<CR>", { desc = "[T]ab [P]revious" })
 vim.keymap.set("i", "jk", "<ESC><right>", { desc = "Quit insert mode" })
+
+vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, { buffer = 0 })
+vim.keymap.set("i", "<C-k>", vim.lsp.buf.signature_help, { buffer = 0 })
