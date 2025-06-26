@@ -20,7 +20,7 @@ vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
 vim.opt.tabstop = 4
-vim.opt.expandtab = true
+vim.opt.expandtab = false
 vim.opt.shiftwidth = 4
 vim.opt.smarttab = true
 
@@ -60,7 +60,12 @@ vim.api.nvim_create_autocmd("BufReadPost", {
 	end,
 })
 
-vim.cmd([[
-  filetype plugin indent on
-  syntax enable
-]])
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = { "javascript", "typescript" },
+	callback = function()
+		vim.opt_local.shiftwidth = 2
+		vim.opt_local.tabstop = 2
+		vim.opt_local.softtabstop = 2
+		vim.opt_local.expandtab = true
+	end,
+})
