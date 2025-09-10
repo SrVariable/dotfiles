@@ -10,9 +10,9 @@ My custom setup in Linux
 - `i3`
 - `maim`
 - `playerctl`
-- `vim`
 - `xclip`
 - `xdotool`
+- `rofi`
 
 ```Shell
 sudo apt install -y \
@@ -20,9 +20,9 @@ sudo apt install -y \
                     i3 \
                     maim \
                     playerctl \
-                    vim \
                     xclip \
-                    xdotool
+                    xdotool \
+                    rofi
 ```
 
 ## Installation

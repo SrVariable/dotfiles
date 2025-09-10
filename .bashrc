@@ -64,19 +64,24 @@ parse_git_branch() {
 # Format the prompt
 set_prompt() {
 	exit_status=$?
-	if [ "$PWD" = "$HOME" ]; then
-		if [ "$exit_status" -ne 0 ]; then
-			PS1="\[\033[1;31m\]➜ \[\033[1;34m\]$VIRTUAL_ENV_PROMPT~\[\033[1;32m\]$(parse_git_branch)\[\033[0m\] "
-		else
-			PS1="\[\033[1;32m\]➜ \[\033[1;34m\]$VIRTUAL_ENV_PROMPT~\[\033[1;32m\]$(parse_git_branch)\[\033[0m\] "
-		fi
-	else
-		if [ "$exit_status" -ne 0 ]; then
-			PS1="\[\033[1;31m\]➜ \[\033[1;34m\]$VIRTUAL_ENV_PROMPT$(basename "$PWD")\[\033[1;32m\]$(parse_git_branch)\[\033[0;0m\] "
-		else
-			PS1="\[\033[1;32m\]➜ \[\033[1;34m\]$VIRTUAL_ENV_PROMPT$(basename "$PWD")\[\033[1;32m\]$(parse_git_branch)\[\033[0;0m\] "
-		fi
+	arrow_prompt="\[\033[1;32m\]➜ "
+	if [ "$exit_status" -ne 0 ]; then
+	    arrow_prompt="\[\033[1;31m\]➜\[\033[0m\] "
 	fi
+
+	venv_prompt="\[\033[1;35m\]($VIRTUAL_ENV_PROMPT)\[\033[0m\] "
+	if [ "$VIRTUAL_ENV_PROMPT" == "" ]; then
+	    venv_prompt=""
+	fi
+
+	current_dir="\[\033[1;34m\]$(basename $PWD)"
+	if [ "$PWD" = "$HOME" ]; then
+	    current_dir="\[\033[1;34m\]~"
+	fi
+
+	branch_prompt="\[\033[1;32m\]$(parse_git_branch)\[\033[0m\] "
+
+	PS1="$arrow_prompt$venv_prompt$current_dir$branch_prompt\[\033[0m\]"
 }
 
 # Terminal prompt display
@@ -156,7 +161,7 @@ export PATH="$PATH:/home/ribana-b/.local/bin"
 # Start using tmux
 if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]]\
 	&& [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
-	$HOME/.config/Scripts/tmux_session.sh
+	$HOME/.config/tmux/tmux_session.sh
 fi
 
 export LS_COLORS='*Makefile=38;5;172:*.md=38;5;207:'
