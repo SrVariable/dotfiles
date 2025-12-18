@@ -22,7 +22,8 @@ sudo apt install -y \
                     playerctl \
                     xclip \
                     xdotool \
-                    rofi
+                    rofi \
+                    redshift
 ```
 
 ## Installation

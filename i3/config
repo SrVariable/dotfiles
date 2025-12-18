@@ -34,8 +34,10 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork --color 0
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
 
+exec --no-startup-id redshift
+
 exec --no-startup-id xset dpms 0 0 1800
-#exec --no-startup-id xset r rate 200 40
+exec --no-startup-id xset r rate 200 10
 exec --no-startup-id setxkbmap -layout es,us grp:win_space_toggle -option ctrl:nocaps
 #exec --no-startup-id xrandr --output HDMI-1 --primary
 #exec --no-startup-id xrandr --output HDMI-1 --left-of eDP-1
