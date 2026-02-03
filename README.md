@@ -9,16 +9,21 @@ My custom setup in Linux
 - `dunst`
 - `i3`
 - `maim`
+- `feh`
+- `picom`
 - `playerctl`
 - `xclip`
 - `xdotool`
 - `rofi`
+- `redshift`
 
 ```Shell
 sudo apt install -y \
                     dunst \
+                    feh \
                     i3 \
                     maim \
+                    picom \
                     playerctl \
                     xclip \
                     xdotool \
