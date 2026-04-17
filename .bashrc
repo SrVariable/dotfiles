@@ -4,8 +4,8 @@
 
 # If not running interactively, don't do anything
 case $- in
-	*i*) ;;
-		*) return;;
+    *i*) ;;
+      *) return;;
 esac
 
 # don't put duplicate lines or lines starting with space in the history.
@@ -28,32 +28,46 @@ shopt -s checkwinsize
 #shopt -s globstar
 
 # make less more friendly for non-text input files, see lesspipe(1)
-[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
+#[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
-# set variable identifying the chroot you work in (used in the prompt below)
-if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
-    debian_chroot=$(cat /etc/debian_chroot)
+# enable color support of ls and also add handy aliases
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    alias ls='ls --color=auto'
+    #alias dir='dir --color=auto'
+    #alias vdir='vdir --color=auto'
+
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
 fi
 
-# set a fancy prompt (non-color, unless we know we "want" color)
-case "$TERM" in
-	xterm-color|*-256color) color_prompt=yes;;
-esac
+# colored GCC warnings and errors
+export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
-# uncomment for a colored prompt, if the terminal has the capability; turned
-# off by default to not distract the user: the focus in a terminal window
-# should be on the output of commands, not on the prompt
-#force_color_prompt=yes
+# some more ls aliases
+alias ll='ls -l'
+alias la='ls -A'
+alias l='ls -CF'
 
-if [ -n "$force_color_prompt" ]; then
-	if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
-		# We have color support; assume it's compliant with Ecma-48
-		# (ISO/IEC-6429). (Lack of such support is extremely rare, and such
-		# a case would tend to support setf rather than setaf.)
-		color_prompt=yes
-	else
-		color_prompt=
-	fi
+# Alias definitions.
+# You may want to put all your additions into a separate file like
+# ~/.bash_aliases, instead of adding them here directly.
+# See /usr/share/doc/bash-doc/examples in the bash-doc package.
+
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi
+
+# enable programmable completion features (you don't need to enable
+# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
+# sources /etc/bash.bashrc).
+if ! shopt -oq posix; then
+  if [ -f /usr/share/bash-completion/bash_completion ]; then
+    . /usr/share/bash-completion/bash_completion
+  elif [ -f /etc/bash_completion ]; then
+    . /etc/bash_completion
+  fi
 fi
 
 # Display the name of the branch
@@ -74,9 +88,10 @@ set_prompt() {
 	    venv_prompt=""
 	fi
 
-	current_dir="\[\033[1;34m\]$(basename $PWD)"
-	if [ "$PWD" = "$HOME" ]; then
-	    current_dir="\[\033[1;34m\]~"
+	if [ $(pwd | grep $HOME) ]; then
+	    current_dir="\[\033[1;34m\]~${PWD##$HOME}"
+	else
+	    current_dir="\[\033[1;34m\]$PWD"
 	fi
 
 	branch_prompt="\[\033[1;32m\]$(parse_git_branch)\[\033[0m\] "
@@ -87,79 +102,58 @@ set_prompt() {
 # Terminal prompt display
 PROMPT_COMMAND='set_prompt'; export PROMPT_COMMAND
 
-unset color_prompt force_color_prompt
+export PATH=$PATH:$HOME/.local/bin
+export EDITOR=nvim
 
-# If this is an xterm set the title to user@host:dir
-case "$TERM" in
-	xterm*|rxvt*)
-		PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
-		;;
-*)
-    ;;
-esac
+alias v=nvim
+alias vim=nvim
+alias rg="rg --vimgrep"
+alias bat="batcat"
+alias diff="diff --color"
+function create() {
+    mkdir -p $1
+    cd $1
+}
 
-# enable color support of ls and also add handy aliases
-if [ -x /usr/bin/dircolors ]; then
-	test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-	alias ls='ls --color=auto'
-	#alias dir='dir --color=auto'
-	#alias vdir='vdir --color=auto'
+alias virt-manager="GDK_SCALE=1 GDK_DPI_SCALE=1.25 virt-manager"
 
-	alias grep='grep --color=auto'
-	alias fgrep='fgrep --color=auto'
-	alias egrep='egrep --color=auto'
-fi
+alias tmp="v $(mktemp)"
 
-# some more ls aliases
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
+alias calacritty="nvim ~/.config/alacritty/alacritty.toml"
+alias ci3="nvim ~/.config/i3/config"
+alias ci3status="nvim ~/.config/i3status/config"
+alias ctmux="nvim ~/.config/tmux/tmux.conf"
+alias cbash="nvim ~/.bashrc && source ~/.bashrc"
+alias i3lock="i3lock -c 222222 -e -f"
+alias fd="fdfind -H"
+alias ls="ls -h --color"
+alias lastpic="ls -dt --color=never $HOME/Pictures/Screenshots/* | head -1"
 
-# Alias definitions.
-# You may want to put all your additions into a separate file like
-# ~/.bash_aliases, instead of adding them here directly.
-# See /usr/share/doc/bash-doc/examples in the bash-doc package.
-if [ -f ~/.bash_aliases ]; then
-	source ~/.bash_aliases
-fi
+alias preview="live-server --port=9876 --no-browser &> /dev/null &  echo 'Previewing http://localhost9876, remember to pkill $!' && zen --private-window http://localhost:9876 &"
 
-# enable programmable completion features (you don't need to enable
-# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
-# sources /etc/bash.bashrc).
-if ! shopt -oq posix; then
-  if [ -f /usr/share/bash-completion/bash_completion ]; then
-    . /usr/share/bash-completion/bash_completion
-  elif [ -f /etc/bash_completion ]; then
-    . /etc/bash_completion
-  fi
-fi
-
-# If ~/.inputrc doesn't exist yet: First include the original /etc/inputrc
-# so it won't get overriden
-if [ ! -a ~/.inputrc ]; then echo '$include /etc/inputrc' > ~/.inputrc; fi
-
-# Add shell-option to ~/.inputrc to enable case-insensitive tab completion
-echo 'set completion-ignore-case On' >> ~/.inputrc
-
-# pnpm
-export PNPM_HOME="/home/ribana-b/.local/share/pnpm"
-case ":$PATH:" in
-	*":$PNPM_HOME:"*) ;;
-	*) export PATH="$PNPM_HOME:$PATH" ;;
-esac
-
-# cargo
 . "$HOME/.cargo/env"
 
-# fnm
-export PATH="/home/ribana-b/.local/share/fnm:$PATH"
-eval "`fnm env`"
-
-# Created by `pipx` on 2024-02-04 16:32:52
-export PATH="$PATH:/home/ribana-b/.local/bin"
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+eval "$(zoxide init bash --cmd j)"
 
 # Start using tmux
 if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]]\
 	&& [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
-	$HOME/.config/tmux/tmux_session.sh
+	    $HOME/.config/tmux/tmux_session.sh
 fi
+
+# pnpm
+export PNPM_HOME="$HOME/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+
+export PATH="$PATH:$HOME/Downloads/flutter/bin"
+
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
+
+# Added by flyctl installer
+export FLYCTL_INSTALL="$HOME/.fly"
+export PATH="$FLYCTL_INSTALL/bin:$PATH"
