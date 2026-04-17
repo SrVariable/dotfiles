@@ -115,7 +115,7 @@ return {
 						},
 					},
 				},
-				oxlint = {},
+				-- oxlint = {},
 			}
 
 			local ensure_installed = vim.tbl_keys(servers or {})

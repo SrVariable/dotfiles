@@ -17,7 +17,7 @@ font pango:monospace 8
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
-font pango:DejaVu Sans Mono 8
+font pango:DejaVu Sans Mono 12
 
 # Start XDG autostart .desktop files using dex. See also
 # https://wiki.archlinux.org/index.php/XDG_Autostart
@@ -32,13 +32,16 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork --color 0
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
-exec --no-startup-id nm-applet
+#exec --no-startup-id nm-applet
 
 exec --no-startup-id redshift
+exec --no-startup-id caffeine
+exec --no-startup-id picom
 
 exec --no-startup-id xset dpms 0 0 1800
-exec --no-startup-id xset r rate 200 10
-exec --no-startup-id setxkbmap -layout es,us grp:win_space_toggle -option ctrl:nocaps
+exec --no-startup-id xset r rate 200 18
+#exec --no-startup-id setxkbmap -layout es,us -option 'grp:alt_shift_toggle' -option ctrl:nocaps
+exec --no-startup-id feh --bg-scale $HOME/Pictures/bg-chopper-2.png
 #exec --no-startup-id xrandr --output HDMI-1 --primary
 #exec --no-startup-id xrandr --output HDMI-1 --left-of eDP-1
 
@@ -167,10 +170,10 @@ mode "resize" {
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
-        bindsym j resize shrink width 10 px or 10 ppt
-        bindsym k resize grow height 10 px or 10 ppt
-        bindsym l resize shrink height 10 px or 10 ppt
-        bindsym ntilde resize grow width 10 px or 10 ppt
+        bindsym h resize shrink width 10 px or 10 ppt
+        bindsym j resize grow height 10 px or 10 ppt
+        bindsym k resize shrink height 10 px or 10 ppt
+        bindsym l resize grow width 10 px or 10 ppt
 
         # same bindings, but for the arrow keys
         bindsym Left resize shrink width 10 px or 10 ppt
@@ -179,25 +182,28 @@ mode "resize" {
         bindsym Right resize grow width 10 px or 10 ppt
 
         # back to normal: Enter or Escape or $mod+r
-        bindsym Return mode "default"
+        bindsym q mode "default"
         bindsym Escape mode "default"
-        bindsym $mod+r mode "default"
+        bindsym $mod+Ctrl+r mode "default"
 }
 
 bindsym $mod+Ctrl+r mode "resize"
 
-gaps inner 7px
+gaps inner 22px
+# Border colors
+client.focused          #222222 #f2ca51  #222222 #222222 #f2ca51
 
 # Remove every border for these programs 
 for_window [class="firefox"] border none
 for_window [class="Brave-browser"] border none
 for_window [class="zen"] border none
 for_window [class="Alacritty"] border none
+for_window [class="obs"] border none
 for_window [class="kitty"] border none
 for_window [class="Spotify"] border none
 for_window [class="discord"] border none
 for_window [class="obsidian"] border none
-for_window [class="Gimp-2.10"] border none
+for_window [class="Gimp-*"] border none
 for_window [class="Code"] border none
 for_window [class="MyPaint"] border none
 for_window [class="mpv"] border none
@@ -205,12 +211,11 @@ for_window [class="chatterino"] border none
 for_window [class="VirtualBox Machine"] border none floating enable
 for_window [class="Gnome-terminal"] border none floating enable
 
-for_window [workspace=1] layout tabbed
-# for_window [workspace=2] layout tabbed
+for_window [class=".*"] border pixel 1
 
-#=====================
-# Remove border for Chrome windows
-#for_window [class="Google-chrome"] border none
+#for_window [workspace=1] layout tabbed
+#for_window [workspace=2] layout tabbed
+for_window [workspace=1] inner gaps pixel 0
 
 # For my OpenGL projects
 for_window [class="opengl"] floating enable
@@ -218,13 +223,14 @@ for_window [class="opengl"] floating enable
 #no_focus [all]
 #focus_on_window_activation none
 
-#assign [class="Google-chrome"] → 3
-#assign [class="firefox"] → 3
-assign [class="spotify"] → 10
-#assign [class="Cub3D"] → 10
-#=====================
+assign [class="telegram"] → 8
+assign [class="TelegramDesktop"] → 8
 
-# bindsym $mod+Shift+p exec flatpak run org.mypaint.MyPaint
+assign [class="discord"] → 9
+assign [class="Discord"] → 9
+
+assign [class="spotify"] → 10
+assign [class="Spotify"] → 10
 
 # Setup Media Keys
 bindsym XF86AudioPlay exec  ~/.config/i3/mediakeys.sh 1
@@ -242,7 +248,7 @@ bindsym Ctrl+Print exec --no-startup-id maim | xclip -selection clipboard -t ima
 bindsym Ctrl+$mod+Print exec --no-startup-id maim --window $(xdotool getactivewindow) | xclip -selection clipboard -t image/png
 bindsym $mod+Shift+s exec --no-startup-id maim --select | xclip -selection clipboard -t image/png
 
-bindsym $mod+b exec --no-startup-id boomer
+bindsym $mod+b exec --no-startup-id dazum
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
@@ -251,11 +257,12 @@ bar {
 	colors {
 		statusline			#dddddd
 		background			#222222
-		focused_workspace	#808080 #808080 #dddddd
+		focused_workspace	#f2ca51 #f2ca51 #222222
 		inactive_workspace	#505050 #505050 #dddddd
 		active_workspace	#505050 #505050 #dddddd
 		urgent_workspace	#303030 #ff3030 #dddddd
 	}
+	mode dock
 }
 
 # Control cursor pointer with keyboard, inspired from: https://www.reddit.com/r/i3wm/comments/3btki2/use_the_mouse_cursor_from_the_keyboard

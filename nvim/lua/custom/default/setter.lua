@@ -6,6 +6,8 @@ vim.opt.relativenumber = true
 
 vim.opt.mouse = "a"
 
+vim.opt.foldcolumn = "2"
+
 vim.schedule(function()
 	vim.opt.clipboard = "unnamedplus"
 end)
@@ -69,3 +71,25 @@ vim.api.nvim_create_autocmd("BufReadPost", {
 --		vim.opt_local.expandtab = true
 --	end,
 --})
+
+-- To save foldings
+vim.api.nvim_create_augroup("AutoView", { clear = true })
+vim.api.nvim_create_autocmd("BufWritePost", {
+	group = "AutoView",
+	pattern = "*",
+	command = "silent! mkview",
+})
+
+vim.api.nvim_create_autocmd("BufReadPost", {
+	group = "AutoView",
+	pattern = "*",
+	command = "silent! loadview",
+})
+
+vim.api.nvim_create_autocmd("InsertEnter", {
+	command = [[set norelativenumber]],
+})
+
+vim.api.nvim_create_autocmd("InsertLeave", {
+	command = [[set relativenumber]],
+})
