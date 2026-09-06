@@ -2,7 +2,7 @@
 
 backup_dir="$HOME/Desktop/backup"
 config_files=$(find . -maxdepth 1 -type d ! \( -name ".git" -o -name "." -o -name ".vim" \) -printf "%P ")
-home_files=$(find . -maxdepth 1 \( -type f -o -type d \) \( -name "redshift.conf" -o -name ".vim*" -o -name ".bashrc" -o -name ".bash_aliases" -o -name ".zshrc" -o -name ".zsh_aliases" \) -printf "%P ")
+home_files=$(find . -maxdepth 1 \( -type f -o -type d \) \( -name "redshift.conf" -o -name ".vim*" -o -name ".profile" -o -name ".bashrc" -o -name ".bash_aliases" -o -name ".zshrc" -o -name ".zsh_aliases" \) -printf "%P ")
 
 create_backup() {
 	i=0
@@ -25,7 +25,7 @@ create_backup() {
 
 	cp -r ${backup_config_files[@]} $backup_dir/$i/.config > /dev/null 2>&1
 	cp -r ${backup_home_files[@]} $backup_dir/$i > /dev/null 2>&1
-	printf -- "Created succesfully!\n"
+	printf -- "Created successfully!\n"
 }
 
 # TODO: Maybe use symlinks?
@@ -34,7 +34,7 @@ install_dotfiles() {
 	mkdir -p $HOME/.config
 	cp -r $config_files $HOME/.config
 	cp -r $home_files $HOME
-	printf -- "Installed sucessfully!\n"
+	printf -- "Installed successfully!\n"
 }
 
 restore_from_backup() {
@@ -57,7 +57,7 @@ restore_from_backup() {
 	fi
 	printf "Restoring from ${available_backups[$option]}...\n"
 	cp -r ${available_backups[$option]}/. $HOME 
-	printf "Restored sucessfully!\n"
+	printf "Restored successfully!\n"
 }
 
 formatted_message() {
