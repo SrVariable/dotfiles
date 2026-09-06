@@ -127,9 +127,7 @@ alias cbash="nvim ~/.bashrc && source ~/.bashrc"
 alias i3lock="i3lock -c 222222 -e -f"
 alias fd="fdfind -H"
 alias ls="ls -h --color"
-alias lastpic="ls -dt --color=never $HOME/Pictures/Screenshots/* | head -1"
-
-alias preview="live-server --port=9876 --no-browser &> /dev/null &  echo 'Previewing http://localhost9876, remember to pkill $!' && zen --private-window http://localhost:9876 &"
+alias lastpic="ls -dt --color=never ~/Pictures/Screenshots/* | head -1"
 
 . "$HOME/.cargo/env"
 
@@ -150,10 +148,4 @@ case ":$PATH:" in
 esac
 # pnpm end
 
-export PATH="$PATH:$HOME/Downloads/flutter/bin"
-
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
-
-# Added by flyctl installer
-export FLYCTL_INSTALL="$HOME/.fly"
-export PATH="$FLYCTL_INSTALL/bin:$PATH"
