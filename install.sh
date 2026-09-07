@@ -1,11 +1,10 @@
-#!/bin/bash
-
+#!/usr/bin/env bash
 backup_dir="$HOME/Desktop/backup"
 config_files=$(find . -maxdepth 1 -type d ! \( -name ".git" -o -name "." -o -name ".vim" \) -printf "%P ")
 home_files=$(find . -maxdepth 1 \( -type f -o -type d \) \( -name "redshift.conf" -o -name ".vim*" -o -name ".profile" -o -name ".bashrc" -o -name ".bash_aliases" -o -name ".zshrc" -o -name ".zsh_aliases" \) -printf "%P ")
 
 create_backup() {
-	i=0
+	local i=0
 	read -ra temp_config <<< "$config_files"
 	read -ra temp_home <<< "$home_files"
 	backup_config_files=()
@@ -28,7 +27,6 @@ create_backup() {
 	printf -- "Created successfully!\n"
 }
 
-# TODO: Maybe use symlinks?
 install_dotfiles() {
 	printf -- "Installing dotfiles...\n"
 	mkdir -p $HOME/.config
@@ -38,7 +36,7 @@ install_dotfiles() {
 }
 
 restore_from_backup() {
-	i=0
+	local i=0
 	available_backups=()
 
 	while [[ -d $backup_dir/$i ]]; do
@@ -61,14 +59,17 @@ restore_from_backup() {
 }
 
 formatted_message() {
-	option=$1
-	max_length_option=27
-	option_length=${#option}
-	spaces_to_fill_option=$((max_length_option - option_length))
-	formatted_option=$(printf "%s%*s" "$option" "$spaces_to_fill_option")
+	local option=$1
+	local max_length_option=27
+	local option_length=${#option}
+	local spaces_to_fill_option=$((max_length_option - option_length))
+	local formatted_option=$(printf "%s%*s" "$option" "$spaces_to_fill_option")
+
 	printf -- "%s\n" "$formatted_option$2"
 }
 
+# TODO(srvariable): Create install_requirements, and install_full
+# this way the setup will be way easier
 case $1 in
 	"" | "-b" | "--backup")
 		create_backup

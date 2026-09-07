@@ -6,16 +6,21 @@ My custom setup in Linux
 
 ## Requirements
 
-- `dunst`
-- `i3`
-- `maim`
-- `feh`
-- `picom`
-- `playerctl`
-- `xclip`
-- `xdotool`
-- `rofi`
-- `redshift`
+- dunst
+- i3
+- maim
+- feh
+- picom
+- playerctl
+- xclip
+- xdotool
+- rofi
+- redshift
+- caffeine
+- nvim
+- fzf
+- fd
+- ripgrep
 
 ```Shell
 sudo apt install -y \
@@ -28,7 +33,10 @@ sudo apt install -y \
                     xclip \
                     xdotool \
                     rofi \
-                    redshift
+                    redshift \
+                    caffeine \
+                    fd-find \
+                    ripgrep
 ```
 
 ## Installation
@@ -36,7 +44,8 @@ sudo apt install -y \
 Clone the repository and go inside the folder
 
 ```Shell
-git clone https://github.com/SrVariable/dotfiles.git && cd dotfiles
+git clone https://github.com/SrVariable/dotfiles.git
+cd dotfiles
 ```
 
 Install the dotfiles
