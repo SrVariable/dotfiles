@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+iface=""
+for dev in /sys/class/net/*; do
+	[[ -d $dev/wireless ]] && { iface=${dev##*/}; break; }
+done
+
+# /proc/net/wireless only lists associated interfaces; column 4 is signal in dBm
+level=$(awk -v i="$iface:" '$1 == i { sub(/\.$/, "", $4); print $4 }' /proc/net/wireless 2>/dev/null)
+
+if [[ -z $iface || -z $level || $(cat "/sys/class/net/$iface/operstate") != up ]]; then
+	echo "W: down"; echo "W: down"; echo "#f25151"
+	exit 0
+fi
+
+# i3status nl80211 mapping: clamp to [-90, -20] dBm, then 100 - (-20 - dBm), i.e. 30%..100%
+(( level < -90 )) && level=-90
+(( level > -20 )) && level=-20
+q=$(( 120 + level ))
+
+printf 'W: %d%%\nW: %d%%\n#51f26c\n' "$q" "$q"

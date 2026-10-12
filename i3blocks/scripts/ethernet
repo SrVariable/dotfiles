@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+iface=""
+for dev in /sys/class/net/*; do
+	# Skip wireless and virtual interfaces (docker0, tailscale0, lo), like i3status _first_
+	[[ -d $dev/wireless || ! -e $dev/device ]] && continue
+	iface=${dev##*/}; break
+done
+
+if [[ -z $iface || $(cat "/sys/class/net/$iface/operstate") != up ]]; then
+	echo "E: down"; echo "E: down"; echo "#f25151"
+	exit 0
+fi
+
+speed=$(cat "/sys/class/net/$iface/speed" 2>/dev/null)
+if [[ $speed == 1000 ]]; then
+	speed="1 Gbit/s"
+elif [[ $speed =~ ^[0-9]+$ ]] && (( speed > 0 )); then
+	speed="$speed Mbit/s"
+else
+	speed="?"
+fi
+
+printf 'E: %s\nE: %s\n#51f26c\n' "$speed" "$speed"

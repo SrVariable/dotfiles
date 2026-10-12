@@ -1,0 +1,41 @@
+#!/usr/bin/env bash
+
+BAT=${BLOCK_INSTANCE:-BAT0}
+LOW_THRESHOLD=10
+uevent=/sys/class/power_supply/$BAT/uevent
+
+if [[ ! -r $uevent ]]; then
+	echo "No battery"; echo "No battery"; echo "#f25151"
+	exit 0
+fi
+
+# Exposes POWER_SUPPLY_* variables
+source <(grep -E '^POWER_SUPPLY_[A-Z_]+=' "$uevent" | sed 's/=\(.*\)/="\1"/')
+
+# Batteries report either ENERGY_* (µWh) + POWER_NOW or CHARGE_* (µAh) + CURRENT_NOW
+now=${POWER_SUPPLY_ENERGY_NOW:-$POWER_SUPPLY_CHARGE_NOW}
+full=${POWER_SUPPLY_ENERGY_FULL_DESIGN:-$POWER_SUPPLY_CHARGE_FULL_DESIGN}
+rate=${POWER_SUPPLY_POWER_NOW:-$POWER_SUPPLY_CURRENT_NOW}
+
+# i3status defaults to design capacity (last_full_capacity = false)
+if [[ -n $now && -n $full && $full -gt 0 ]]; then
+	percentage=$(awk -v n="$now" -v f="$full" 'BEGIN { printf "%.2f", n * 100 / f }')
+else
+	percentage=${POWER_SUPPLY_CAPACITY:-0}
+fi
+
+remaining=""
+if [[ -n $rate && $rate -gt 0 && -n $now ]]; then
+	case $POWER_SUPPLY_STATUS in
+		Discharging) secs=$(( now * 3600 / rate )) ;;
+		Charging)    secs=$(( (${POWER_SUPPLY_ENERGY_FULL:-${POWER_SUPPLY_CHARGE_FULL:-$full}} - now) * 3600 / rate )) ;;
+	esac
+	[[ -n $secs ]] && remaining=$(printf ' %02d:%02d' $(( secs / 3600 )) $(( secs % 3600 / 60 )))
+fi
+
+text="$percentage%$remaining"
+echo "$text"
+echo "$text"
+if [[ $POWER_SUPPLY_STATUS == Discharging ]] && awk -v p="$percentage" -v t="$LOW_THRESHOLD" 'BEGIN { exit !(p < t) }'; then
+	echo "#f25151"
+fi

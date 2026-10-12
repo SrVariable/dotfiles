@@ -1,0 +1,19 @@
+interval=1
+markup=none
+
+[wireless]
+command=$HOME/.config/i3blocks/scripts/wireless
+
+[ethernet]
+command=$HOME/.config/i3blocks/scripts/ethernet
+
+[tailscale]
+command=$HOME/.config/i3blocks/scripts/tailscale
+interval=5
+
+[battery]
+command=$HOME/.config/i3blocks/scripts/battery
+instance=BAT0
+
+[time]
+command=date '+%Y-%m-%d %H:%M:%S'

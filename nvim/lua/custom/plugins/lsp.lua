@@ -118,21 +118,28 @@ return {
 				-- oxlint = {},
 			}
 
+			-- Resolved from $PATH (the project's venv) instead of Mason, so the
+			-- version matches the one pinned in requirements-dev.txt.
+			local path_servers = {
+				pyright = {},
+			}
+
 			local ensure_installed = vim.tbl_keys(servers or {})
 			vim.list_extend(ensure_installed, {
 				"stylua",
 			})
 			require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
-			require("mason-lspconfig").setup({
-				handlers = {
-					function(server_name)
-						local server = servers[server_name] or {}
-						server.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server.capabilities or {})
-						require("lspconfig")[server_name].setup(server)
-					end,
-				},
-			})
+			-- Explicit enabling below keeps both server groups on a single code path.
+			require("mason-lspconfig").setup({ automatic_enable = false })
+
+			vim.lsp.config("*", { capabilities = capabilities })
+			for _, group in ipairs({ servers, path_servers }) do
+				for name, config in pairs(group) do
+					vim.lsp.config(name, config)
+					vim.lsp.enable(name)
+				end
+			end
 		end,
 	},
 }
