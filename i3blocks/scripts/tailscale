@@ -4,11 +4,12 @@
 get_state() { tailscale status --json 2>/dev/null | jq -r '.BackendState // empty'; }
 
 state=$(get_state)
+exit_node_ip=$(tailscale status | awk -v name="web" '$2 == name {print $1}')
 
 if [[ $BLOCK_BUTTON == 1 ]]; then
 	case $state in
 		Running) timeout 10 tailscale down >/dev/null 2>&1 ;;
-		Stopped) timeout 10 tailscale up --advertise-tags pc >/dev/null 2>&1 ;;
+		Stopped) timeout 10 tailscale up --advertise-tags=pc --exit-node=$exit_node_ip >/dev/null 2>&1 ;;
 	esac
 	state=$(get_state)
 fi

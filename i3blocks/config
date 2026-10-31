@@ -11,6 +11,9 @@ command=$HOME/.config/i3blocks/scripts/ethernet
 command=$HOME/.config/i3blocks/scripts/tailscale
 interval=5
 
+[vpn]
+command=$HOME/.config/i3blocks/scripts/vpn
+
 [battery]
 command=$HOME/.config/i3blocks/scripts/battery
 instance=BAT0
