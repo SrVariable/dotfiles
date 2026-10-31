@@ -1,5 +1,38 @@
 #!/usr/bin/env bash
 
+menu() {
+	local toggle entries ssid pass
+	if [[ $(nmcli radio wifi) == enabled ]]; then
+		toggle="Desactivar WiFi"
+		# SSID goes last so read keeps any ':' it contains (nmcli escapes them as '\:')
+		entries=$(nmcli -t -f SIGNAL,SECURITY,SSID dev wifi list --rescan yes |
+			awk -F: '$3 != "" && !seen[$0]++' | sort -t: -k1,1nr |
+			while IFS=: read -r sig sec name; do
+				printf '%s  (%s%%) %s\n' "${name//\\:/:}" "$sig" "${sec:+🔒}"
+			done)
+	else
+		toggle="Activar WiFi"
+	fi
+
+	ssid=$(printf '%s\n%s\n' "$toggle" "$entries" | sed '/^$/d' | rofi -dmenu -i -p wifi) || return
+	case $ssid in
+		"Desactivar WiFi") nmcli radio wifi off; return ;;
+		"Activar WiFi") nmcli radio wifi on; return ;;
+	esac
+	ssid=${ssid%%  (*}
+
+	# Fails for unknown secured networks; ask for the password and retry
+	nmcli dev wifi connect "$ssid" && return
+	pass=$(rofi -dmenu -password -p "Clave de $ssid" </dev/null) || return
+	nmcli dev wifi connect "$ssid" password "$pass"
+}
+
+# Detached so the bar is not blocked while the menu is open
+case $BLOCK_BUTTON in
+	1) setsid -f bash -c "$(declare -f menu); menu" >/dev/null 2>&1 ;;
+	3) [[ $(nmcli radio wifi) == enabled ]] && nmcli radio wifi off || nmcli radio wifi on ;;
+esac
+
 iface=""
 for dev in /sys/class/net/*; do
 	[[ -d $dev/wireless ]] && { iface=${dev##*/}; break; }
