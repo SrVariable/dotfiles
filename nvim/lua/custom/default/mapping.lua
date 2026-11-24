@@ -7,6 +7,7 @@ vim.keymap.set("n", "<leader>d", "<cmd>bd!<CR>", { desc = "[D]eletes current buf
 vim.keymap.set("n", "<leader>tc", "<cmd>tabnew<CR>", { desc = "[T]ab [C]reate" })
 vim.keymap.set("n", "<leader>tn", "<cmd>tabnext<CR>", { desc = "[T]ab [N]ext" })
 vim.keymap.set("n", "<leader>tp", "<cmd>tabprev<CR>", { desc = "[T]ab [P]revious" })
+vim.keymap.set("n", "-", "<cmd>Oil<CR>", { desc = "Open Oil" })
 
 vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, { buffer = 0 })
 vim.keymap.set("i", "<C-k>", vim.lsp.buf.signature_help, { buffer = 0 })

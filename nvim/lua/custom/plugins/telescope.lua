@@ -78,6 +78,21 @@ return {
 			vim.keymap.set("n", "<leader>ski", function()
 				builtin.find_files({ cwd = "~/.config/kitty" })
 			end, { desc = "[S]earch [K]itty files" })
+
+			-- Oil buffer names are "oil://..." URLs, so ask Oil for the real path
+			local function buffer_dir()
+				local ok, oil = pcall(require, "oil")
+				local dir = ok and oil.get_current_dir() or nil
+				return dir or vim.fn.expand("%:p:h")
+			end
+
+			vim.keymap.set("n", "<leader>csf", function()
+				builtin.find_files({ cwd = buffer_dir() })
+			end, { desc = "[C]urrent dir [S]earch [F]iles" })
+
+			vim.keymap.set("n", "<leader>csg", function()
+				builtin.live_grep({ cwd = buffer_dir() })
+			end, { desc = "[C]urrent dir [S]earch by [G]rep" })
 		end,
 	},
 }
