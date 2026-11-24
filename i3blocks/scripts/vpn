@@ -1,9 +1,11 @@
 #!/usr/bin/env bash
 
-exit_node_id=$(tailscale debug prefs | jq -r '.ExitNodeID // empty')
+exit_node_id=$(tailscale debug prefs | jq -r .ExitNodeID)
 exit_node_ip=$(tailscale status | awk -v name="web" '$2 == name {print $1}')
+text="VPN: off"; color="#f25151"
 
 if [[ $BLOCK_BUTTON == 1 ]]; then
+
 	if [[ "$exit_node_id" != "" ]]; then
 		tailscale set --exit-node=
 	else
