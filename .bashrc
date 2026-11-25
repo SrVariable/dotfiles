@@ -88,11 +88,15 @@ set_prompt() {
 	    venv_prompt=""
 	fi
 
-	if [ $(pwd | grep $HOME) ]; then
-	    current_dir="\[\033[1;34m\]~${PWD##$HOME}"
-	else
-	    current_dir="\[\033[1;34m\]$PWD"
-	fi
+	case "$PWD" in
+	    "$HOME"*)
+		current_dir="\[\033[1;34m\]~${PWD##$HOME}"
+		;;
+	    *)
+		current_dir="\[\033[1;34m\]$PWD"
+		;;
+	esac
+
 
 	branch_prompt="\[\033[1;32m\]$(parse_git_branch)\[\033[0m\] "
 
