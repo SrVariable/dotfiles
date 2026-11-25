@@ -27,6 +27,7 @@ sudo apt install -y \
                     dunst \
                     feh \
                     i3 \
+                    i3blocks \
                     maim \
                     picom \
                     playerctl \
