@@ -1,6 +1,6 @@
 configuration {
     modi: "window,run,ssh,drun";
-    font: "Iosevka Nerd Font 14";
+    font: "IosevkaTerm Nerd Font Mono 14";
 }
 
 * {
